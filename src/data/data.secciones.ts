@@ -1,59 +1,43 @@
 
-export const ANIMALES = [
+export const SECCIONES = [
       {
-        nombre: "Caballo",
-        imagen: "assets/animales/caballo.png",
-        audio: "assets/sonidos/caballo.mp3",
-        duracion: 4,
-        reproduciendo: false
+        id: 1,
+        nombre: "Intro",
+        imagen: "assets/banderas/worldcup.jpeg"
       },
       {
-        nombre: "Cabra",
-        imagen: "assets/animales/cabra.png",
-        audio: "assets/sonidos/cabra.wav",
-        duracion: 4,
-        reproduciendo: false
+        id: 2,
+        nombre: "Selección Colombia",
+        imagen: "assets/banderas/colombia.png"
       },
       {
-        nombre: "Cerdo",
-        imagen: "assets/animales/cerdo.png",
-        audio: "assets/sonidos/cerdo.wav",
-        duracion: 2,
-        reproduciendo: false
+        id: 3,
+        nombre: "Selección Brasil",
+        imagen: "assets/banderas/brasil.png"
       },
       {
-        nombre: "Gallo",
-        imagen: "assets/animales/gallo.png",
-        audio: "assets/sonidos/gallo.mp3",
-        duracion: 4,
-        reproduciendo: false
+        id: 4,
+        nombre: "Seleccion Alemania",
+        imagen: "assets/banderas/alemania.png"
       },
       {
-        nombre: "Mono",
-        imagen: "assets/animales/mono.png",
-        audio: "assets/sonidos/mono.mp3",
-        duracion: 8,
-        reproduciendo: false
+        id: 5,
+        nombre: "Seleccion Rusia",
+        imagen: "assets/banderas/rusia.png"
       },
       {
-        nombre: "Perro",
-        imagen: "assets/animales/perro.png",
-        audio: "assets/sonidos/perro.mp3",
-        duracion: 5,
-        reproduciendo: false
+        id: 6,
+        nombre: "Selección Panamá",
+        imagen: "assets/banderas/panama.png"
       },
       {
-        nombre: "Serpiente",
-        imagen: "assets/animales/serpiente.png",
-        audio: "assets/sonidos/serpiente.mp3",
-        duracion: 2,
-        reproduciendo: false
+        id: 7,
+        nombre: "Selección Arabia Saudita",
+        imagen: "assets/banderas/arabiasaudita.png"
       },
       {
-        nombre: "Tigre",
-        imagen: "assets/animales/tigre.png",
-        audio: "assets/sonidos/tigre.mp3",
-        duracion: 2,
-        reproduciendo: false
+        id: 8,
+        nombre: "Selección Senegal",
+        imagen: "assets/banderas/senegal.png"
       }
 ];

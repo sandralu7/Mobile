@@ -1,14 +1,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Secciones
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+ <ion-list>
+   <ion-item *ngFor="let seccion  of secciones"
+     (click)="irStickers(seccion)">
+     <ion-avatar item-start>
+      <img [src]="seccion.imagenSeccion">
+    </ion-avatar>
+    <h2>{{seccion.nombreSeccion}}</h2>
+    <ion-icon name="search" item-right></ion-icon>
+   </ion-item>
+
+ </ion-list>
 </ion-content>

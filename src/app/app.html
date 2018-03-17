@@ -1,1 +1,29 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="openPage(album)">
+        Inicio
+      </button>
+      <button ion-item (click)="openPage(intercambios)">
+        Intercambios
+      </button>
+      <button ion-item (click)="openPage(solicitudesEntrantes)">
+        Solicitudes Entrantes
+      </button>
+      <button ion-item (click)="openPage(solicitudesSalientes)">
+        Solicitudes Salientes
+      </button>
+      <button ion-item (click)="closeMenu()">
+        Cerrar Sesión
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<ion-nav [root]="rootPage" #content></ion-nav>
