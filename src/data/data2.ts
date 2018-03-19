@@ -15,14 +15,16 @@ export const ALBUMS = [{
       nombreTicketIngles: "James",
       numeroTicket: 1,
       ordenTicket: 1,
-      cantidad: 2
+      cantidad: 2,
+      ico: "Ico"
     },{
       idTicket: 1,
       nombreTicket: "James",
       nombreTicketIngles: "James",
       numeroTicket: 1,
       ordenTicket: 1,
-      cantidad: 2
+      cantidad: 0,
+      ico: "IcoGris"
     }]},
     {
       idSeccion: 1,
@@ -36,14 +38,16 @@ export const ALBUMS = [{
         nombreTicketIngles: "Neimar",
         numeroTicket: 1,
         ordenTicket: 1,
-        cantidad: 2
+        cantidad: 2,
+        ico: "Ico"
       },{
         idTicket: 1,
         nombreTicket: "James",
         nombreTicketIngles: "James",
         numeroTicket: 1,
         ordenTicket: 1,
-        cantidad: 2
+        cantidad: 0,
+        ico: "IcoGris"
       }]
   }]
 }]

@@ -9,9 +9,19 @@ page-fichas-todas {
     text-align: center;
   }
 
+  .profilebutton {
+    z-index: 2;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    margin: auto;
+    background-color: #B40404;
+    font-weight: bold;
+    color: #fff;
+  }
   .card-title {
     position: absolute;
-    top: 36%;
+    top: 20%;
     font-size: 2.0em;
     width: 100%;
     font-weight: bold;
@@ -21,7 +31,7 @@ page-fichas-todas {
   .card-subtitle {
     font-size: 1.0em;
     position: absolute;
-    top: 52%;
+    top: 70%;
     width: 100%;
     color: #fff;
   }

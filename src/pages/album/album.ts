@@ -4,6 +4,7 @@ import { HomePage } from "../index.paginas";
 
 import { AlbumProvider } from "../../providers/album/album";
 import { Album } from "../../interfaces/album.interface";
+import { URL_IMAGENES} from "../../config/url.servicios";
 
 
 @Component({
@@ -14,7 +15,7 @@ export class AlbumPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private _albumes:AlbumProvider) {
-        _albumes.cargar_todos2();
+
 
   }
 
@@ -24,13 +25,14 @@ export class AlbumPage {
 
   navegarPaginaSecciones(album:Album){
 
-    this.navCtrl.push(HomePage, {'seccion': album.seccion});
+    this.navCtrl.push(HomePage, {'album': album});
+  //  this.navCtrl.push(HomePage, {'album': album});
   }
 
 siguiente_pagina(infiniteScroll){
-  this._albumes.cargar_todos().then(()=>{
-    infiniteScroll.complete();
-  })
+//  this._albumes.cargar_todos().then(()=>{
+  //  infiniteScroll.complete();
+//  })
 }
 
 }

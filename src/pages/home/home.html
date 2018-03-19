@@ -11,7 +11,7 @@
    <ion-item *ngFor="let seccion  of secciones"
      (click)="irStickers(seccion)">
      <ion-avatar item-start>
-      <img [src]="seccion.imagenSeccion">
+      <img [src]="seccion.imagenSeccion | imagen:''">
     </ion-avatar>
     <h2>{{seccion.nombreSeccion}}</h2>
     <ion-icon name="search" item-right></ion-icon>

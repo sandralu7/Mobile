@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import {FichasTodasPage,FichasRepetidasPage, FichasFaltantesPage} from "../index.paginas";
 import { Seccion } from "../../interfaces/seccion.interface";
+import { Album } from "../../interfaces/album.interface";
 
 @Component({
   selector: 'page-tabs',
@@ -11,6 +12,7 @@ import { Seccion } from "../../interfaces/seccion.interface";
 })
 export class TabsPage {
 
+  album = {} as Album;
   seccion = {} as Seccion;
   tab1:any;
   tab2:any;
@@ -23,7 +25,8 @@ export class TabsPage {
 
     console.log(this.navParams);
     this.seccion = this.navParams.get('seccion');
-
+    this.album = this.navParams.get('album');
+  
   }
 
   ionViewDidLoad() {

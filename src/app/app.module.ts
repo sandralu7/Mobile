@@ -7,6 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+//Pipe
+import {ImagenPipe} from "../pipes/imagen/imagen";
+
 import { MyApp } from './app.component';
 import { AlbumPage,
   CuentaPage,
@@ -39,7 +42,8 @@ import { IntercambiosProvider } from '../providers/intercambios/intercambios';
     SolicitudesEntrantesPage,
     SolicitudesSalientesPage,
     TabsPage,
-    HomePage
+    HomePage,
+    ImagenPipe
   ],
   imports: [
     BrowserModule,

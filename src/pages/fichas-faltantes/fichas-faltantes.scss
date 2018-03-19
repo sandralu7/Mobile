@@ -1,3 +1,47 @@
 page-fichas-faltantes {
 
 }
+.card-background-page {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+  .profilecheck {
+    z-index: 2;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    margin: auto;
+    
+  }
+
+
+  .profilebutton {
+    z-index: 2;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    margin: auto;
+    background-color: #B40404;
+    font-weight: bold;
+    color: #fff;
+  }
+  .card-title {
+    position: absolute;
+    top: 20%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 70%;
+    width: 100%;
+    color: #fff;
+  }
+
+}

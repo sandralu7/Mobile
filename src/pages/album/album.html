@@ -19,7 +19,7 @@
     <ion-row *ngFor="let item of _albumes.albumes">
       <ion-col>
         <ion-card>
-        <img src="{{item.imagenAlbum}}" (click)="navegarPaginaSecciones(item)">
+        <img [src]="item.imagenAlbum | imagen:''" (click)="navegarPaginaSecciones(item)">
         <ion-card-content>
           <ion-card-title>
 
