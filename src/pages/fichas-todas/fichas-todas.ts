@@ -4,6 +4,7 @@ import { Seccion } from "../../interfaces/seccion.interface";
 import { Tickets } from "../../interfaces/tickets.interface";
 
 import { AlbumProvider } from "../../providers/album/album";
+import {AlertController} from "ionic-angular";
 /**
  * Generated class for the FichasTodasPage page.
  *
@@ -23,7 +24,8 @@ export class FichasTodasPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private actionSheetCtrl: ActionSheetController,
-              private _albumes:AlbumProvider) {
+              private _albumes:AlbumProvider,
+              public alertCtl:AlertController) {
     this.seccion = this.navParams.data;
     this.tickets = this.seccion.tickets;
     console.log("Tickets");
@@ -46,15 +48,32 @@ export class FichasTodasPage {
           role: 'destructive',
           handler: () => {
             console.log('Destructive clicked');
+            if(ticket.cantidad == 0){
+              this.alertCtl.create({
+                  title: "Error",
+                  subTitle: "No tiene laminas para eliminar",
+                  buttons: ["OK"]
+
+              }).present();
+            }
+            else{
+              ticket.cantidad = parseInt(ticket.cantidad.toString())-1;
+              this._albumes.eliminarLamina(ticket.numeroTicket);
+            }
+
           }
         },{
           text: 'Añadir',
           handler: () => {
             console.log('Archive clicked');
-            //ticket.cantidad += 1;
             ticket.cantidad = parseInt(ticket.cantidad.toString())+1;
-            this._albumes.agregarLamina(ticket.idTicket);
-            console.log(ticket.cantidad);
+            //this._albumes.agregarLamina(ticket.numeroTicket);
+            this.alertCtl.create({
+                title: "Exito",
+                subTitle: "Lamina agregada correctamente. ",
+                buttons: ["OK"]
+
+            }).present();
           }
         },{
           text: 'Cancel',
