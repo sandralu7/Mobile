@@ -67,7 +67,7 @@ export class FichasTodasPage {
           handler: () => {
             console.log('Archive clicked');
             ticket.cantidad = parseInt(ticket.cantidad.toString())+1;
-            //this._albumes.agregarLamina(ticket.numeroTicket);
+            this._albumes.agregarLamina(ticket.numeroTicket);
             this.alertCtl.create({
                 title: "Exito",
                 subTitle: "Lamina agregada correctamente. ",
