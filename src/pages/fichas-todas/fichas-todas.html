@@ -24,7 +24,6 @@
              <button *ngIf="item.cantidad >= 2" ion-fab mini color="danger">{{item.cantidad}}</button>
            </ion-fab>-->
         <ion-badge *ngIf="item.cantidad >= 2" color="danger" class="profilebutton">{{item.cantidad}}</ion-badge>
-        <button *ngIf="item.cantidad >= 2" class="button profilebutton" >{{item.cantidad}}</button>
         <ion-avatar item-start>
           <img *ngIf="item.cantidad == 0" [src]="seccion.imagenSeccion | imagen:'IcoGris'" >
           <img *ngIf="item.cantidad >= 1" [src]="seccion.imagenSeccion | imagen:''" >

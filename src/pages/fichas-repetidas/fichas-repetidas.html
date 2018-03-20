@@ -22,37 +22,19 @@
       {{seccion.nombreSeccion}}
     </h1>
     <ion-grid>
-      <ion-row *ngFor="let item of seccion.tickets">
-        <ion-col>
-          <ion-card>
-          <ion-checkbox class = "profilecheck" (ionChange)= "anadirAlista(item)"></ion-checkbox>
-          <button *ngIf="item.cantidad >= 2" class="button profilebutton" >{{item.cantidad}}</button>
-          <ion-avatar item-start>
-            <img *ngIf="item.cantidad == 0" src="assets/banderas/IcoGriscolombia.png" >
-            <img *ngIf="item.cantidad >= 1" src="assets/banderas/colombia.png" >
-          </ion-avatar>
-          <div class="card-title">{{item.numeroTicket}}</div>
-          <div class="card-subtitle">{{item.nombreTicket}}</div>
-          </ion-card>
-        </ion-col>
-        <ion-col>
-          <ion-card>
-            <img *ngIf="item.cantidad == 0" src="assets/banderas/IcoGriscolombia.png" >
-            <img *ngIf="item.cantidad >= 1" src="assets/banderas/colombia.png" >
-          <div class="card-title">{{item.numeroTicket}}</div>
-          <div class="card-subtitle">{{item.nombreTicket}}</div>
-          </ion-card>
-        </ion-col>
-        <ion-col>
-          <ion-card>
-            <img *ngIf="item.cantidad == 0" src="assets/banderas/IcoGriscolombia.png" >
-            <img *ngIf="item.cantidad >= 1" src="assets/banderas/colombia.png" >
-          <div class="card-title">{{item.numeroTicket}}</div>
-          <div class="card-subtitle">{{item.nombreTicket}}</div>
-          </ion-card>
-        </ion-col>
 
-      </ion-row>
+      <ion-col col-4 *ngFor="let item of seccion.tickets">
+        <ion-card>
+        <ion-checkbox class = "profilecheck" (ionChange)= "anadirAlista(item)"></ion-checkbox>
+        <ion-badge *ngIf="item.cantidad >= 2" color="danger" class="profilebutton">{{item.cantidad}}</ion-badge>
+        <ion-avatar item-start>
+          <img *ngIf="item.cantidad == 0" [src]="seccion.imagenSeccion | imagen:'IcoGris'" >
+          <img *ngIf="item.cantidad >= 1" [src]="seccion.imagenSeccion | imagen:''" >
+        </ion-avatar>
+        <div class="card-title">{{item.numeroTicket}}</div>
+        <div class="card-subtitle">{{item.nombreTicket}}</div>
+        </ion-card>
+      </ion-col>
 
     </ion-grid>
 

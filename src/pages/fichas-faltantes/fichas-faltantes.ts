@@ -39,24 +39,36 @@ export class FichasFaltantesPage {
   }
 
   anadirAlista(ticket:Tickets){
+
+    //Si no hay elementos en el arreglo lo pongo
     if(this.ticketsSeleccionados.length==0){
       this.ticketsSeleccionados.push(ticket);
       return;
     }
-    else if(this.ticketsSeleccionados.length==3){
-      return;
-    }
+
+    // Si hay elementos verifico que no haya sido seleccionado si no lo borro
     for(let i=0; i<this.ticketsSeleccionados.length; i++){
       if(this.ticketsSeleccionados[i].idTicket == ticket.idTicket){
         this.ticketsSeleccionados.splice(i,1);
-      }
-      else{
-        this.ticketsSeleccionados.push(ticket);
+        console.log("Lo Borre, nuevo tamanio: " +this.ticketsSeleccionados.length);
+        return;
       }
     }
 
+    //Verifico que no haya mas de 3 laminas seleccionadas
+    if(this.ticketsSeleccionados.length>=3){
+      console.log("Ya no puedo recibir mas");
+      return;
+    }
+    else{
+    //Si el arreglo tiene objetos y quiero agregar otro
+    this.ticketsSeleccionados.push(ticket);
+    console.log("tamano");
+    console.log(this.ticketsSeleccionados.length);
     console.log(this.ticketsSeleccionados);
+    }
   }
+
 
 
 }

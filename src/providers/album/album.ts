@@ -51,14 +51,14 @@ export class AlbumProvider {
   }
 
   cargar_todosPorCantidad(token: string, idUsuario: number, idAlbum:number, rangoInicial:number, rangoFinal:number){
-    let url = URL_SERVICIOS + "/album/obtener_informacion_albun_usuario_cantidad/"+token+"/"+idUsuario+"/"+idAlbum+"/"+rangoInicial+"/"+rangoFinal;
+    let url = URL_SERVICIOS + "/album/obtener_informacion_albun_usuario_cantidad/"+idUsuario+"/"+rangoInicial+"/"+rangoFinal;
 
       this.http.get(url).subscribe(res =>{
        console.log(res);
        if(res['ERROR']){
          //aqui hay un error
        }else{
-          this.albumesCantidad.splice(0,this.albumesCantidad.length);
+        this.albumesCantidad.splice(0,this.albumesCantidad.length);
          this.albumesCantidad.push(...res.json()['ALBUMS']);
          console.log("Albumes from "+rangoInicial+" "+rangoFinal);
          console.log(this.albumesCantidad);
