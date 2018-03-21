@@ -14,10 +14,44 @@
 
 
 <ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="nombre" ></ion-input>
+    </ion-item>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="email"  [(ngModel)]="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Celular</ion-label>
+    <ion-input type="tel"  [(ngModel)]="celular"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password"  [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password Repeat</ion-label>
+    <ion-input type="password"  [(ngModel)]="passwordver"></ion-input>
+  </ion-item>
+  <br><br><br>
+
+  <button  ion-button block   (click)="registrarUsuario()">
+    Aceptar</button>
+
+</ion-list>
+
   <button ion-button
       color="primary"
       block
-      (click)="navegarPaginaAlbumes()">
-    Aceptar
+      (click)="navegarPaginaLogin()">
+    Cancelar
   </button>
 </ion-content>

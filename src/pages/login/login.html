@@ -15,12 +15,25 @@
 
 <ion-content padding>
  <h1>Ingreso de Usuarios</h1>
-  <button ion-button
-      color="primary"
-      block
-      (click)="navegarPaginaAlbumes()">
-    Ingresar
-  </button>
+ <ion-list>
+
+ <ion-item>
+   <ion-label floating>Email</ion-label>
+   <ion-input type="email" [(ngModel)]="correo" ></ion-input>
+ </ion-item>
+
+ <ion-item>
+   <ion-label floating>Password</ion-label>
+   <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
+ </ion-item>
+
+</ion-list>
+
+<button ion-button block   (click)="loginUsuario()">
+  Aceptar</button>
+
+
+
   <button ion-button
       color="primary"
       block

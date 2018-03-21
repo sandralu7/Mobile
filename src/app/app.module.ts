@@ -23,10 +23,15 @@ import { AlbumPage,
   SolicitudesSalientesPage,
   TabsPage,
   HomePage} from "../pages/index.paginas";
+
+  // Storage
+  import { IonicStorageModule } from '@ionic/storage';
+
 //servicios
 import { AlbumProvider } from '../providers/album/album';
 import { UsuarioProvider } from '../providers/usuario/usuario';
 import { IntercambiosProvider } from '../providers/intercambios/intercambios';
+import { AjustesProvider } from '../providers/ajustes/ajustes';
 
 @NgModule({
   declarations: [
@@ -46,6 +51,7 @@ import { IntercambiosProvider } from '../providers/intercambios/intercambios';
     ImagenPipe
   ],
   imports: [
+     IonicStorageModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     HttpModule,
@@ -75,7 +81,8 @@ import { IntercambiosProvider } from '../providers/intercambios/intercambios';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AlbumProvider,
     UsuarioProvider,
-    IntercambiosProvider
+    IntercambiosProvider,
+    AjustesProvider
   ]
 })
 export class AppModule {}
