@@ -7,12 +7,62 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>cuenta</ion-title>
+    <ion-title>Información de Perfil</ion-title>
+    <ion-buttons>
+      <button ion-button
+              icon-only
+              menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+<ion-avatar item-start>
+    <ion-badge color="danger" class="procentaje-numero">{{_usuario.usuario.porcentajeLlenado}} %</ion-badge>
+    <img *ngIf="_usuario.usuario.porcentajeLlenado==100" src="assets/banderas/trofeoIcon.png">
+    <img *ngIf="_usuario.usuario.porcentajeLlenado>=80 && _usuario.usuario.porcentajeLlenado<=99" src="assets/banderas/goldIcon.png">
+    <img *ngIf="_usuario.usuario.porcentajeLlenado>=60 && _usuario.usuario.porcentajeLlenado<=79" src="assets/banderas/silverIcon.png">
+    <img *ngIf="_usuario.usuario.porcentajeLlenado>=0 && _usuario.usuario.porcentajeLlenado<=59" src="assets/banderas/bronzeIcon.png">
+</ion-avatar>
+  <ion-card>
+    <ion-card-header>
+    Información Personal
+    </ion-card-header>
+    <ion-item>
+      <ion-icon name="contact" item-start large></ion-icon>
+        <h2>Nombre: </h2>
+        <p>{{_usuario.usuario.nombreUsuario}}, miembro desde: {{_usuario.usuario.fechaCreacionUsuario}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" item-start large></ion-icon>
+        <h2>Email: </h2>
+        <p>{{_usuario.usuario.correoUsuario}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="call" item-start large></ion-icon>
+        <h2>Celular: </h2>
+        <p>{{_usuario.usuario.celular}}</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="football" item-start large></ion-icon>
+        <h2>Láminas Registradas: </h2>
+        <p>{{_usuario.usuario.laminasRegistradas}}/682</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="sad" item-start large></ion-icon>
+        <h2>Láminas Faltantes: </h2>
+        <p>{{_usuario.usuario.laminasFaltantes}}/682</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="images" item-start large></ion-icon>
+        <h2>Láminas Repetidas: </h2>
+        <p>{{_usuario.usuario.laminasRepetidas}}</p>
+    </ion-item>
+
+  </ion-card>
 
 </ion-content>

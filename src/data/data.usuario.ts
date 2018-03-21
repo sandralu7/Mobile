@@ -1,4 +1,4 @@
-export const USUARIOS ={
+export const USUARIO ={
   idUsuario: 1,
   nombreUsuario: "Sandra Rodriguez",
   correoUsuario: "ing.sandralu@gmail.com",

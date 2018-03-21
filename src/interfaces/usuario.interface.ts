@@ -1,9 +1,9 @@
-export interface UsuariosCercanos{
+export interface Usuarios{
   idUsuario:number;
   nombreUsuario:string;
   correoUsuario:string;
   celular:string;
-  porcentajeLlenado: string;
+  porcentajeLlenado: number;
   laminasRegistradas: number;
   laminasFaltantes: number;
   laminasRepetidas: number;

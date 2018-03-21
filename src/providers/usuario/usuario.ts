@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { Usuarios } from "../../interfaces/usuario.interface";
+
+import {USUARIO} from "../../data/data.usuario";
 
 /*
   Generated class for the UsuarioProvider provider.
@@ -11,11 +14,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UsuarioProvider {
 
+  token:string = "59915aa41a1ead79412005bf8ebc157d19515871";
+  idUsuario: number = 1;
+  idAlbum: number = 1;
 
-
+  usuario = {} as Usuarios;
   constructor(public http: HttpClient) {
     console.log('Hello UsuarioProvider Provider');
-
+    this.usuario = USUARIO;
+    console.log("Usuarios: ");
+    console.log(this.usuario);
 
   }
 
