@@ -6,6 +6,7 @@ export const USUARIOS =[{
   celular: "3192566724",
   localizacion: "POINT (5.541254, -73.358421)",
   porcentajeLlenado:85,
+  distancia:1,
   tickets: [{
 
     idTicket: 6,
@@ -28,6 +29,7 @@ export const USUARIOS =[{
   celular: "3192566724",
   localizacion: "POINT (5.541254, -73.358421)",
   porcentajeLlenado:100,
+  distancia: 10,
   tickets: [{
     idTicket: 4,
     nombreTicket: "James",
@@ -48,6 +50,7 @@ export const USUARIOS =[{
   celular: "3192566724",
   localizacion: "POINT (5.541254, -73.358421)",
   porcentajeLlenado:20,
+  distancia:20,
   tickets: [{
     idTicket: 2,
     nombreTicket: "James",

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from "../index.paginas";
+import { TabsPage } from "../index.paginas";
 
 import { AlbumProvider } from "../../providers/album/album";
 import { Album } from "../../interfaces/album.interface";
@@ -25,7 +25,7 @@ export class AlbumPage {
 
   navegarPaginaSecciones(album:Album){
 
-    this.navCtrl.push(HomePage, {'album': album});
+    this.navCtrl.push(TabsPage, {'album': album});
   //  this.navCtrl.push(HomePage, {'album': album});
   }
 

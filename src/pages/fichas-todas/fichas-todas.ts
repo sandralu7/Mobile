@@ -26,7 +26,7 @@ export class FichasTodasPage {
               private actionSheetCtrl: ActionSheetController,
               private _albumes:AlbumProvider,
               public alertCtl:AlertController) {
-    this.seccion = this.navParams.data;
+    this.seccion = this.navParams.get("seccion");
     this.tickets = this.seccion.tickets;
     console.log("Tickets");
     console.log(this.tickets);

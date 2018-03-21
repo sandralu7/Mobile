@@ -12,5 +12,6 @@ export interface UsuariosCercanos{
   celular: string;
   localizacion: string;
   porcentajeLlenado:number;
+  distancia: number;
   tickets: TicketsEncontrados[];
 }
