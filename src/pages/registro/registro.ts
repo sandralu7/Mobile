@@ -36,6 +36,7 @@ export class RegistroPage {
   celular:string="";
   password:string="";
   passwordver:string="";
+  envioCorreo: any;
 
   mensajesPagina: any;
   mensajesGenerales: any;
@@ -127,6 +128,33 @@ export class RegistroPage {
 
   }
 
+  enviarCorreo(){
+    let datac=new URLSearchParams();
+    datac.append("CONTENIDO", "Hola como estas Julian <br/> yucas lola");
+    datac.append("ASUNTO", "prueba gmail");
+    datac.append("EMAIL_DESTINATARIO", "julianrojasing@gmail.com");
+      let url = URL_SERVICIOS + "/mail/enviar_correo/";
+      return this.http.post(url,datac)
+              .map( resp=>{
+                let data_resp=resp.json();
+
+                if(data_resp.error){// Si hubo un error al enviar
+                    this.envioCorreo=false;
+                    console.log("Pailas no envio mail");
+                      this.alertCtrl.create({
+                        title:"Error",
+                        subTitle: data_resp.mensaje,
+                        buttons: ["OK"]
+                      }).present()
+
+
+                }else{
+                  console.log("Envio Mail");
+                  this.envioCorreo=true;
+                }
+              } )
+  }
+
 
   registrarServicio(){
     // Genara la peticion por medio de los parametros
@@ -148,7 +176,11 @@ export class RegistroPage {
            content: "Espere por favor",
      });
     loader.present();
-
+    this.enviarCorreo().subscribe( ()=>{});
+    if(  this.envioCorreo==false){
+        loader.dismiss();// Cierra el loading por que ya hizo la peticion
+      return;
+    }
     // Realiza la peticion por medio de una promesa
     return this.http.post(url,data)
             .map( resp=>{
