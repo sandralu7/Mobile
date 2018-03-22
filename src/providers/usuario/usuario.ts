@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Usuarios } from "../../interfaces/usuario.interface";
 
 import {USUARIO} from "../../data/data.usuario";
+import {AjustesProvider} from "../ajustes/ajustes";
 
 /*
   Generated class for the UsuarioProvider provider.
@@ -19,7 +20,9 @@ export class UsuarioProvider {
   idAlbum: number = 1;
 
   usuario = {} as Usuarios;
-  constructor(public http: HttpClient) {
+
+
+  constructor(public http: HttpClient, ajustes: AjustesProvider) {
     console.log('Hello UsuarioProvider Provider');
     this.usuario = USUARIO;
     console.log("Usuarios: ");
