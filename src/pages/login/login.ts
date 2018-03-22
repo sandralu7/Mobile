@@ -9,6 +9,8 @@ import { AjustesProvider } from "../../providers/ajustes/ajustes";
 import { LoadingController, AlertController} from 'ionic-angular';
 import 'rxjs/add/operator/map'
 
+import {MSJ_LOGIN} from "../../data/data.mensajes";
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -17,11 +19,13 @@ export class LoginPage {
 
   correo:string = "";
   contrasena:string = "";
+  mensajes: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private _ajustes: AjustesProvider,
     public loadingCtrl: LoadingController,
     public http : Http,
     private alertController:AlertController) {
+      this.mensajes = MSJ_LOGIN;
   }
 
   navegarPaginaAlbumes(){

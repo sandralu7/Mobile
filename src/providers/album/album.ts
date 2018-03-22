@@ -8,6 +8,7 @@ import { URL_SERVICIOS} from "../../config/url.servicios";
 import { Album } from "../../interfaces/album.interface";
 
 import { ALBUMS } from "../../data/data2";
+import {AjustesProvider} from "../ajustes/ajustes";
 
 
 /*
@@ -20,13 +21,15 @@ import { ALBUMS } from "../../data/data2";
 export class AlbumProvider {
 
   token:string = "59915aa41a1ead79412005bf8ebc157d19515871";
-  idUsuario: number = 1;
-  idAlbum: number = 1;
 
+  idAlbum: number = 1;
+  idUsuario:any;
   albumes:Album[] = [];
   albumesCantidad: Album[] =[];
 
-  constructor(public http: Http, public alertCtl:AlertController) {
+  constructor(public http: Http, public alertCtl:AlertController,
+        private ajustes:AjustesProvider) {
+    this.idUsuario = this.ajustes.ajustes.id_usuario;
     this.cargar_todos();
     //this.albumes = ALBUMS.slice(0);
     //console.log('Constructor');
@@ -50,8 +53,8 @@ export class AlbumProvider {
 
   }
 
-  cargar_todosPorCantidad(token: string, idUsuario: number, idAlbum:number, rangoInicial:number, rangoFinal:number){
-    let url = URL_SERVICIOS + "/album/obtener_informacion_albun_usuario_cantidad/"+idUsuario+"/"+rangoInicial+"/"+rangoFinal;
+  cargar_todosPorCantidad(token: string, idAlbum:number, rangoInicial:number, rangoFinal:number){
+    let url = URL_SERVICIOS + "/album/obtener_informacion_albun_usuario_cantidad/"+this.idUsuario+"/"+rangoInicial+"/"+rangoFinal;
 
       this.http.get(url).subscribe(res =>{
        console.log(res);

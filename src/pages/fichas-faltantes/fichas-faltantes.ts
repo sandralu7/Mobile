@@ -27,7 +27,7 @@ export class FichasFaltantesPage {
     this.album = this.navParams.data;
   }
   ionViewWillEnter(){
-    this._albumes.cargar_todosPorCantidad(this.token, this.idUsuario,this.album.idAlbum,0,0);
+    this._albumes.cargar_todosPorCantidad(this.token,this.album.idAlbum,0,0);
   }
 
   ionViewDidLoad() {

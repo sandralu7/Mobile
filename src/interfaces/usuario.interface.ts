@@ -1,13 +1,13 @@
 export interface Usuarios{
-  idUsuario:number;
-  nombreUsuario:string;
-  correoUsuario:string;
   celular:string;
-  porcentajeLlenado: number;
-  laminasRegistradas: number;
-  laminasFaltantes: number;
-  laminasRepetidas: number;
+  correoUsuario:string;
   fechaCreacionUsuario: string;
+  idUsuario:number;
+  laminasFaltantes: number;
+  laminasRegistradas: number;
+  laminasRepetidas: number;
+  nombreUsuario:string;
+  porcentajeLlenado: number;
   token: string;
 
 }

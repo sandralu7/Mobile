@@ -15,7 +15,7 @@ import {AlbumProvider} from "../../providers/album/album";
 export class FichasRepetidasPage {
 
   token:string = "59915aa41a1ead79412005bf8ebc157d19515871";
-  idUsuario: number = 3;
+
 
   album = {} as Album;
   ticketsSeleccionados: Tickets[] =[];
@@ -31,7 +31,7 @@ export class FichasRepetidasPage {
   }
 
   ionViewWillEnter(){
-    this._albumes.cargar_todosPorCantidad(this.token, this.idUsuario,this.album.idAlbum,2,999);
+    this._albumes.cargar_todosPorCantidad(this.token, this.album.idAlbum,2,999);
   }
 
   navegarIntercambio(){

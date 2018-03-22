@@ -18,10 +18,15 @@ export class CuentaPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private _usuario: UsuarioProvider) {
+              console.log("USUARIO PROVIDER desde cueta");
+              console.log(this._usuario.usuario);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CuentaPage');
+  }
+  ionViewWillEnter(){
+    this._usuario.consultarUsuario();
   }
 
 }
