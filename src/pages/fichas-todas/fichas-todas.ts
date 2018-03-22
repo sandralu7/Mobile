@@ -68,12 +68,7 @@ export class FichasTodasPage {
             console.log('Archive clicked');
             ticket.cantidad = parseInt(ticket.cantidad.toString())+1;
             this._albumes.agregarLamina(ticket.numeroTicket);
-            this.alertCtl.create({
-                title: "Exito",
-                subTitle: "Lamina agregada correctamente. ",
-                buttons: ["OK"]
 
-            }).present();
           }
         },{
           text: 'Cancel',
