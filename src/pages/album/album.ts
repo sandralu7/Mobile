@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TabsPage, LoginPage } from "../index.paginas";
+import { TabsPage, LoginPage, ConfiguracionPage } from "../index.paginas";
 
 import { AlbumProvider } from "../../providers/album/album";
 import { Album } from "../../interfaces/album.interface";
@@ -8,7 +8,7 @@ import { URL_IMAGENES} from "../../config/url.servicios";
 
 //providers
 import { AjustesProvider } from "../../providers/ajustes/ajustes";
-
+import {MSJ_ALBUMES, MSJ_GENERALES} from "../../data/data.mensajes";
 
 @Component({
   selector: 'page-album',
@@ -16,9 +16,13 @@ import { AjustesProvider } from "../../providers/ajustes/ajustes";
 })
 export class AlbumPage {
 
+  mensajesPagina: any;
+  mensajesGenerales: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private _albumes:AlbumProvider, public _ajustes: AjustesProvider) {
-
+        this.mensajesGenerales = MSJ_GENERALES;
+        this.mensajesPagina = MSJ_ALBUMES;
 
   }
 
@@ -32,13 +36,7 @@ export class AlbumPage {
   //  this.navCtrl.push(HomePage, {'album': album});
   }
 
-  cerrarSesion(){
-    this._ajustes.ajustes.mostrar_login=false;
-    this._ajustes.eliminar_storage();
-    // Establece como Root de la pagina inicial
-    this.navCtrl.setRoot(LoginPage);
 
-  }
 
 siguiente_pagina(infiniteScroll){
 //  this._albumes.cargar_todos().then(()=>{

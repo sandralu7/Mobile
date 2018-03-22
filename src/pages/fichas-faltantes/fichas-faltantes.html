@@ -7,7 +7,9 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Fichas Faltantes</ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.tituloIng}}</ion-title>
+
     <ion-buttons>
       <button ion-button
               icon-only
@@ -25,8 +27,11 @@
   <div *ngFor="let album of _albumes.albumesCantidad">
     <div *ngFor="let seccion of album.seccion">
 
-    <h1>
+    <h1 *ngIf="_ajustes.ajustes.idioma=='E'">>
       {{seccion.nombreSeccion}}
+    </h1>
+    <h1 *ngIf="_ajustes.ajustes.idioma=='I'">>
+      {{seccion.nombreSeleccionIngles}}
     </h1>
     <ion-grid>
       <ion-row>
@@ -39,7 +44,8 @@
             <img *ngIf="item.cantidad >= 1" [src]="seccion.imagenSeccion | imagen:''" >
           </ion-avatar>
           <div class="card-title">{{item.numeroTicket}}</div>
-          <div class="card-subtitle">{{item.nombreTicket}}</div>
+          <div *ngIf="_ajustes.ajustes.idioma=='E'" class="card-subtitle">{{item.nombreTicket}}</div>
+          <div *ngIf="_ajustes.ajustes.idioma=='I'" class="card-subtitle">{{item.nombreTicketIngles}}</div>
           </ion-card>
         </ion-col>
       </ion-row>
@@ -54,7 +60,15 @@
   <button ion-button
       color="primary"
       block
+      *ngIf="_ajustes.ajustes.idioma=='E'"
       (click)="navegarIntercambio()">
-    Solicitar Intercambio
+    {{mensajesPagina.solicitarIntercambio}}
+  </button>
+  <button ion-button
+      color="primary"
+      block
+      *ngIf="_ajustes.ajustes.idioma=='I'"
+      (click)="navegarIntercambio()">
+    {{mensajesPagina.solicitarIntercambioIng}}
   </button>
 </ion-content>

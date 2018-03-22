@@ -51,7 +51,9 @@ export const MSJ_CUENTA =
 
 export const MSJ_FALTANTES ={
       titulo: "Fichas Faltantes",
-      tituloIng: "Missing stickers"
+      tituloIng: "Missing stickers",
+      solicitarIntercambio: "Solicitar Intercambio",
+      solicitarIntercambioIng: "Request Exchange"
 
 }
 
@@ -68,8 +70,8 @@ export const MSJ_TODAS ={
       eliminarIng: "Delete",
       noLaminasEliminar: "No tiene laminas para eliminar",
       noLaminasEliminarIng: "You do not have stickers to eliminate",
-      añadir: "Añadir",
-      añadirIng: "Add",
+      anadir: "Añadir",
+      anadirIng: "Add",
       laminasAgregar: "Lamina agregada correctamente.",
       laminasAgregarIng: "stickers added correctly"
 }

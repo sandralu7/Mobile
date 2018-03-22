@@ -16,19 +16,21 @@
 <ion-content padding>
 
   <h3>Configuration / Configuración</h3>
-  <br><br><br><br><br>
+  <br><br>
   <h4>Select language / Seleccione Idioma:</h4>
-  <ion-item>
-  <ion-label>Select  / Seleccione </ion-label>
-  <ion-select [(ngModel)]="idioma">
-    <ion-option value="I">English</ion-option>
-    <ion-option value="E">Español</ion-option>
-  </ion-select>
-</ion-item>
 
-<br><br>
+  <ion-card>
+  <ion-avatar item-start (click)=selecciomarIdioma(1)>
+    <img src="assets/banderas/inglaterra.png" >
+  </ion-avatar>
+  <div class="card-title">English</div>
+  </ion-card>
+  <ion-card>
+  <ion-avatar item-start (click)=selecciomarIdioma(2)>
+    <img src="assets/banderas/españa.png" >
+  </ion-avatar>
+  <div class="card-title">Español</div>
+  </ion-card>
 
-<button ion-button block   (click)="selecciomarIdioma()">
-  OK</button>
 
 </ion-content>

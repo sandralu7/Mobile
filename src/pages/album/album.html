@@ -7,7 +7,8 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Albumes</ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.tituloIng}}</ion-title>
     <ion-buttons>
       <button ion-button
               icon-only
@@ -28,7 +29,10 @@
         <ion-card>
         <img [src]="item.imagenAlbum | imagen:''" (click)="navegarPaginaSecciones(item)">
         <ion-card-content>
-          <ion-card-title>
+          <ion-card-title *ngIf="_ajustes.ajustes.idioma=='E'">
+             {{item.nombreAlbum}}
+          </ion-card-title>
+          <ion-card-title *ngIf="_ajustes.ajustes.idioma=='I'">
              {{item.nombreAlbum}}
           </ion-card-title>
             <p>
@@ -46,13 +50,7 @@
    <ion-infinite-scroll-content></ion-infinite-scroll-content>
  </ion-infinite-scroll>-->
 
- <h4>Login: {{_ajustes.ajustes.mostrar_login}}</h4>
- <h4>id Usuario: {{_ajustes.ajustes.id_usuario}}</h4>
- <h4>Token: {{_ajustes.ajustes.token}}</h4>
-
-
- <button  ion-button block   (click)="cerrarSesion()">
-   Cerrar Sesion</button>
+ 
 
 
 </ion-content>

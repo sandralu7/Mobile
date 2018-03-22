@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { UsuariosCercanos } from "../../interfaces/usuariosCercanos.interface";
 
 import {USUARIOS} from "../../data/data.UsuariosCercanos";
+import { LoadingController} from 'ionic-angular';
 /*
   Generated class for the IntercambiosProvider provider.
 
@@ -16,7 +17,7 @@ export class IntercambiosProvider {
   idAlbum: number = 1;
 
   usuarios:UsuariosCercanos[]=[];
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public loadingCtrl: LoadingController,) {
     console.log('Hello IntercambiosProvider Provider');
     this.usuarios = USUARIOS.slice(0);
     console.log("Usuarios: ");

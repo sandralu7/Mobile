@@ -44,10 +44,20 @@ export class MyApp {
   }
 
   openPage(pagina:any){
+    
+
     this.rootPage = pagina;
     this.menuCtrl.close();
   }
 
+  cerrarSesion(){
+    this._ajustes.ajustes.mostrar_login=false;
+    this._ajustes.eliminar_storage();
+    // Establece como Root de la pagina inicial
+    this.rootPage = ConfiguracionPage;
+    this.menuCtrl.close();
+
+  }
   closeMenu(){
 
   }

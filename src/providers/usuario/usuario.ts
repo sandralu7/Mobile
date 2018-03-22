@@ -8,6 +8,7 @@ import {AjustesProvider} from "../ajustes/ajustes";
 import {URL_SERVICIOS} from "../../config/url.servicios";
 
 import {AlertController} from "ionic-angular";
+import { LoadingController} from 'ionic-angular';
 
 /*
   Generated class for the UsuarioProvider provider.
@@ -27,7 +28,7 @@ export class UsuarioProvider {
 
 
   constructor(public http: Http, private ajustes: AjustesProvider,
-    public alertCtl:AlertController ) {
+    public alertCtl:AlertController,public loadingCtrl: LoadingController ) {
 
     this.idUsuario = this.ajustes.ajustes.id_usuario;
     console.log('Hello UsuarioProvider Provider');
@@ -40,11 +41,18 @@ export class UsuarioProvider {
     let data = new URLSearchParams();
     data.append("USUA_ID",this.idUsuario.toString());
 
-    let url = URL_SERVICIOS + "/usuario/obtener_informacion_usuario/"
+    let url = URL_SERVICIOS + "/usuario/obtener_informacion_usuario/";
+
+    let loader = this.loadingCtrl.create({
+           content: (this.ajustes.ajustes.idioma=='E') ? 'Espere por favor':'Loading',
+     });
+    loader.present();
+
     console.log(url);
     this.http.post(url,data).subscribe(resp =>{
               console.log(resp);
               let respuesta = resp.json();
+              loader.dismiss();
               console.log("Respuesta JSON");
               console.log(respuesta);
               if(resp['error']){

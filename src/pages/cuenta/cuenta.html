@@ -7,7 +7,9 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Información de Perfil</ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.tituloIng}}</ion-title>
+
     <ion-buttons>
       <button ion-button
               icon-only
@@ -29,13 +31,19 @@
     <img *ngIf="_usuario.usuario.porcentajeLlenado>=0 && _usuario.usuario.porcentajeLlenado<=59" src="assets/banderas/bronzeIcon.png">
 </ion-avatar>
   <ion-card>
-    <ion-card-header>
-    Información Personal
+    <ion-card-header *ngIf="_ajustes.ajustes.idioma=='E'">
+    {{mensajesPagina.informacionPersonal}}
+    </ion-card-header>
+    <ion-card-header *ngIf="_ajustes.ajustes.idioma=='I'">
+    {{mensajesPagina.informacionPersonalIng}}
     </ion-card-header>
     <ion-item>
       <ion-icon name="contact" item-start large></ion-icon>
-        <h2>Nombre: </h2>
-        <p>{{_usuario.usuario.nombreUsuario}}, miembro desde: {{_usuario.usuario.fechaCreacionUsuario}}</p>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.nombre}}: </h2>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.nombreIng}}: </h2>
+        <p *ngIf="_ajustes.ajustes.idioma=='I'">{{_usuario.usuario.nombreUsuario}}, member since: {{_usuario.usuario.fechaCreacionUsuario}}</p>
+        <p *ngIf="_ajustes.ajustes.idioma=='E'">{{_usuario.usuario.nombreUsuario}}, miembro desde: {{_usuario.usuario.fechaCreacionUsuario}}</p>
+
     </ion-item>
     <ion-item>
       <ion-icon name="mail" item-start large></ion-icon>
@@ -44,22 +52,29 @@
     </ion-item>
     <ion-item>
       <ion-icon name="call" item-start large></ion-icon>
-        <h2>Celular: </h2>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.celular}}: </h2>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.celularIng}}: </h2>
         <p>{{_usuario.usuario.celular}}</p>
     </ion-item>
     <ion-item>
       <ion-icon name="football" item-start large></ion-icon>
-        <h2>Láminas Registradas: </h2>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasRegistradas}}: </h2>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasRegistradasIng}}: </h2>
+
         <p>{{_usuario.usuario.laminasRegistradas}}/682</p>
     </ion-item>
     <ion-item>
       <ion-icon name="sad" item-start large></ion-icon>
-        <h2>Láminas Faltantes: </h2>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasFaltantes}}: </h2>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasFaltantesIng}}: </h2>
+
         <p>{{_usuario.usuario.laminasFaltantes}}/682</p>
     </ion-item>
     <ion-item>
       <ion-icon name="images" item-start large></ion-icon>
-        <h2>Láminas Repetidas: </h2>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasRepetidas}}: </h2>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasRepetidasIng}}: </h2>
+
         <p>{{_usuario.usuario.laminasRepetidas}}</p>
     </ion-item>
 

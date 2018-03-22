@@ -6,6 +6,9 @@ import {CuentaPage, HomePage,FichasRepetidasPage, FichasFaltantesPage} from "../
 import { Seccion } from "../../interfaces/seccion.interface";
 import { Album } from "../../interfaces/album.interface";
 
+import { AjustesProvider } from "../../providers/ajustes/ajustes";
+import {MSJ_TABS, MSJ_GENERALES} from "../../data/data.mensajes";
+
 @Component({
   selector: 'page-tabs',
   templateUrl: 'tabs.html',
@@ -13,13 +16,17 @@ import { Album } from "../../interfaces/album.interface";
 export class TabsPage {
 
   album = {} as Album;
-  
+
   tab1:any;
   tab2:any;
   tab3:any;
   tab4:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  mensajesPagina: any;
+  mensajesGenerales: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams
+            , public _ajustes: AjustesProvider) {
     this.tab1 = CuentaPage;
     this.tab2 = HomePage;
     this.tab3 = FichasRepetidasPage;
@@ -28,6 +35,8 @@ export class TabsPage {
     console.log(this.navParams);
     this.album = this.navParams.get("album");
 
+    this.mensajesGenerales = MSJ_GENERALES;
+    this.mensajesPagina = MSJ_TABS;
 
   }
 

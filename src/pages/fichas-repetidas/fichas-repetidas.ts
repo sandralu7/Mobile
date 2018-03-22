@@ -6,7 +6,8 @@ import { Album } from "../../interfaces/album.interface";
 import { Tickets } from "../../interfaces/tickets.interface";
 
 import {AlbumProvider} from "../../providers/album/album";
-
+import { AjustesProvider } from "../../providers/ajustes/ajustes";
+import {MSJ_REPETIDAS, MSJ_GENERALES} from "../../data/data.mensajes";
 
 @Component({
   selector: 'page-fichas-repetidas',
@@ -20,10 +21,14 @@ export class FichasRepetidasPage {
   album = {} as Album;
   ticketsSeleccionados: Tickets[] =[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    private _albumes:AlbumProvider) {
-    this.album = this.navParams.data;
+  mensajesPagina: any;
+  mensajesGenerales: any;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private _albumes:AlbumProvider, public _ajustes: AjustesProvider) {
+    this.album = this.navParams.data;
+    this.mensajesGenerales = MSJ_GENERALES;
+    this.mensajesPagina = MSJ_REPETIDAS;
   }
 
   ionViewDidLoad() {

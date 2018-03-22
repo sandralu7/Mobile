@@ -9,7 +9,7 @@ import { Album } from "../../interfaces/album.interface";
 
 import { ALBUMS } from "../../data/data2";
 import {AjustesProvider} from "../ajustes/ajustes";
-
+import { LoadingController} from 'ionic-angular';
 
 /*
   Generated class for the AlbumProvider provider.
@@ -28,7 +28,7 @@ export class AlbumProvider {
   albumesCantidad: Album[] =[];
 
   constructor(public http: Http, public alertCtl:AlertController,
-        private ajustes:AjustesProvider) {
+        private ajustes:AjustesProvider, public loadingCtrl: LoadingController,) {
     this.idUsuario = this.ajustes.ajustes.id_usuario;
     this.cargar_todos();
     //this.albumes = ALBUMS.slice(0);
@@ -39,8 +39,14 @@ export class AlbumProvider {
   cargar_todos(){
     let url = URL_SERVICIOS + "/album/obtener_informacion_albun_usuario/"+this.idUsuario;
 
+    let loader = this.loadingCtrl.create({
+           content: (this.ajustes.ajustes.idioma=='E') ? 'Espere por favor':'Loading',
+     });
+    loader.present();
+
       this.http.get(url).subscribe(res =>{
       console.log(res);
+      loader.dismiss();
        if(res.json()['ERROR']){
          //aqui hay un error
        }else{
@@ -56,8 +62,14 @@ export class AlbumProvider {
   cargar_todosPorCantidad(token: string, idAlbum:number, rangoInicial:number, rangoFinal:number){
     let url = URL_SERVICIOS + "/album/obtener_informacion_albun_usuario_cantidad/"+this.idUsuario+"/"+rangoInicial+"/"+rangoFinal;
 
+    let loader = this.loadingCtrl.create({
+           content: (this.ajustes.ajustes.idioma=='E') ? 'Espere por favor':'Loading',
+     });
+    loader.present();
+
       this.http.get(url).subscribe(res =>{
        console.log(res);
+       loader.dismiss();
        if(res['ERROR']){
          //aqui hay un error
        }else{
@@ -78,24 +90,31 @@ export class AlbumProvider {
 
     //let url = `${URL_SERVICIOS}/ficha/registrar_ficha/`;
 
-    let url = "https://app-1520633753.000webhostapp.com/rest/index.php/ficha/registrar_ficha/";
+    let url = URL_SERVICIOS +"/ficha/registrar_ficha/";
+
+    let loader = this.loadingCtrl.create({
+           content: (this.ajustes.ajustes.idioma=='E') ? 'Espere por favor':'Loading',
+     });
+    loader.present();
+
     console.log(url);
     this.http.post(url,data).subscribe(resp =>{
               console.log(resp);
               let respuesta = resp.json();
+              loader.dismiss();
               console.log("Respuesta JSON");
               console.log(respuesta);
               if(resp['ERROR']){
                 this.alertCtl.create({
                     title: "Error",
-                    subTitle: resp['mensaje'],
+                    subTitle: (this.ajustes.ajustes.idioma=='E') ? 'Ocurrio un error':'Error',
                     buttons: ["OK"]
 
                 }).present();
               }else{
                 this.alertCtl.create({
-                    title: "Lamina Agregada",
-                    subTitle: "La lámina se ha agregado correctamente",
+                    title: (this.ajustes.ajustes.idioma=='E') ? 'Lámina Agregada':'Sticker added',
+                    subTitle: (this.ajustes.ajustes.idioma=='E') ? 'La lámina se ha agregado correctamente':'Sticker added correctly',
                     buttons: ["OK"]
 
                 }).present();
@@ -112,23 +131,28 @@ export class AlbumProvider {
     //let url = `${URL_SERVICIOS}/ficha/registrar_ficha/`;
 
     let url = URL_SERVICIOS+"/ficha/eliminar_ficha/";
+    let loader = this.loadingCtrl.create({
+           content: (this.ajustes.ajustes.idioma=='E') ? 'Espere por favor':'Loading',
+     });
+    loader.present();
     console.log(url);
     this.http.post(url,data).subscribe(resp =>{
               console.log(resp);
               let respuesta = resp.json();
+              loader.dismiss();
               console.log("Respuesta JSON");
               console.log(respuesta);
               if(resp['ERROR']){
                 this.alertCtl.create({
                     title: "Error",
-                    subTitle: resp['mensaje'],
+                    subTitle: (this.ajustes.ajustes.idioma=='E') ? 'Ocurrio un error':'Error',
                     buttons: ["OK"]
 
                 }).present();
               }else{
                 this.alertCtl.create({
-                    title: "Lamina Agregada",
-                    subTitle: "La lámina se eliminó correctamente",
+                    title: (this.ajustes.ajustes.idioma=='E') ? 'Lámina Eliminada':'Sticker removed',
+                    subTitle: (this.ajustes.ajustes.idioma=='E') ? 'La lámina se eliminó correctamente':'The sticker was removed correctly',
                     buttons: ["OK"]
 
                 }).present();

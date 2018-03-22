@@ -12,6 +12,9 @@ import { AjustesProvider } from "../../providers/ajustes/ajustes";
 import { LoadingController} from 'ionic-angular';
 import 'rxjs/add/operator/map'
 
+
+import {MSJ_REGISTRO, MSJ_GENERALES} from "../../data/data.mensajes";
+
 /**
  * Generated class for the RegistroPage page.
  *
@@ -32,11 +35,16 @@ export class RegistroPage {
   password:string="";
   passwordver:string="";
 
+  mensajesPagina: any;
+  mensajesGenerales: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public loadingCtrl: LoadingController,
               public alertCtrl: AlertController,
               private _ajustes: AjustesProvider,
               public http : Http) {
+                this.mensajesGenerales = MSJ_GENERALES;
+                this.mensajesPagina = MSJ_REGISTRO;
   }
 
   ionViewDidLoad() {
@@ -57,7 +65,7 @@ export class RegistroPage {
       // Crea una alerta informando el error
       this.alertCtrl.create({
         title:"Error ",
-        subTitle: "Ingrese nombre",
+        subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.ingreseNombre:this.mensajesPagina.ingreseNombreIng,
         buttons: ["OK"]
       }).present()
       return;
@@ -67,7 +75,7 @@ export class RegistroPage {
       // Crea una alerta informando el error
       this.alertCtrl.create({
         title:"Error ",
-        subTitle: "Ingrese email",
+        subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.ingreseEmail:this.mensajesPagina.ingreseEmailIng,
         buttons: ["OK"]
       }).present()
       return;
@@ -77,7 +85,7 @@ export class RegistroPage {
       // Crea una alerta informando el error
       this.alertCtrl.create({
         title:"Error ",
-        subTitle: "Ingrese celular",
+        subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.ingreseCelular:this.mensajesPagina.ingreseCelularIng,
         buttons: ["OK"]
       }).present()
       return;
@@ -87,7 +95,7 @@ export class RegistroPage {
       // Crea una alerta informando el error
       this.alertCtrl.create({
         title:"Error ",
-        subTitle: "Ingrese password",
+        subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.ingreseContrasenia:this.mensajesPagina.ingreseContraseniaIng,
         buttons: ["OK"]
       }).present()
       return;
@@ -97,7 +105,7 @@ export class RegistroPage {
       // Crea una alerta informando el error
       this.alertCtrl.create({
         title:"Error ",
-        subTitle: "Ingrese confirmación password",
+        subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.ingreseConfirmacion:this.mensajesPagina.ingreseConfirmacionIng,
         buttons: ["OK"]
       }).present()
       return;
@@ -107,7 +115,7 @@ export class RegistroPage {
       // Crea una alerta informando el error
       this.alertCtrl.create({
         title:"Error ",
-        subTitle: "Las contraseñas no coinciden",
+        subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.contraseniaNoCoincide:this.mensajesPagina.contraseniaNoCoincideIng,
         buttons: ["OK"]
       }).present()
       return;
@@ -155,7 +163,7 @@ export class RegistroPage {
               }else{
                 this.alertCtrl.create({
                   title:"Exito",
-                  subTitle: "Usuario creado correctamente, por favor ingrese a su email y confirme el codigo de verificación",
+                  subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.usuarioCreadoCorrectamente:this.mensajesPagina.usuarioCreadoCorrectamenteIng,
                   buttons: ["OK"]
                 }).present()
                 /*

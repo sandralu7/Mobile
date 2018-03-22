@@ -9,7 +9,7 @@ import { AjustesProvider } from "../../providers/ajustes/ajustes";
 import { LoadingController, AlertController} from 'ionic-angular';
 import 'rxjs/add/operator/map'
 
-import {MSJ_LOGIN} from "../../data/data.mensajes";
+import {MSJ_LOGIN, MSJ_GENERALES, MSJ_REGISTRO} from "../../data/data.mensajes";
 
 @Component({
   selector: 'page-login',
@@ -19,13 +19,17 @@ export class LoginPage {
 
   correo:string = "";
   contrasena:string = "";
-  mensajes: any;
+  mensajesPagina: any;
+  mensajesGenerales: any;
+  mensajesRegistro: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private _ajustes: AjustesProvider,
     public loadingCtrl: LoadingController,
     public http : Http,
     private alertController:AlertController) {
-      this.mensajes = MSJ_LOGIN;
+      this.mensajesPagina = MSJ_LOGIN;
+      this.mensajesGenerales = MSJ_GENERALES;
+      this.mensajesRegistro= MSJ_REGISTRO;
   }
 
   navegarPaginaAlbumes(){
@@ -40,21 +44,43 @@ export class LoginPage {
 
     if(this.correo == "" || this.correo.length==0){
       // Crea una alerta informando el error
-      this.alertController.create({
-        title:"Error ",
-        subTitle: "Ingrese Correo",
-        buttons: ["OK"]
-      }).present()
-      return;
+      if(this._ajustes.ajustes.idioma=='E'){
+
+          this.alertController.create({
+            title:"Error ",
+            subTitle: this.mensajesRegistro.ingreseEmail,
+            buttons: ["OK"]
+          }).present()
+          return;
+      }
+      else{
+        this.alertController.create({
+          title:"Error ",
+          subTitle: this.mensajesRegistro.ingreseEmailIng,
+          buttons: ["OK"]
+        }).present()
+        return;
+      }
+
     }
     if(this.contrasena == "" || this.contrasena.length==0){
+      if(this._ajustes.ajustes.idioma=='E'){
       // Crea una alerta informando el error
-      this.alertController.create({
-        title:"Error ",
-        subTitle: "Ingrese Contraseña",
-        buttons: ["OK"]
-      }).present()
-      return;
+          this.alertController.create({
+            title:"Error ",
+            subTitle: this.mensajesRegistro.ingreseContrasenia,
+            buttons: ["OK"]
+          }).present()
+          return;
+      }
+      else{
+        this.alertController.create({
+          title:"Error ",
+          subTitle: this.mensajesRegistro.ingreseContraseniaIng,
+          buttons: ["OK"]
+        }).present()
+        return;
+      }
     }
 
     this.ingresar().subscribe( ()=>{})
@@ -75,10 +101,19 @@ export class LoginPage {
     let url="http://www.fingergroup.com.co/rest/index.php/usuario/login_usuario_geo/";
 
     // Se crea un loadiog con el fin de que verifique el usuario
-    let loader = this.loadingCtrl.create({
-           content: "Espere por favor",
-     });
-    loader.present();
+    let loader;
+    if(this._ajustes.ajustes.idioma=='E'){
+        loader = this.loadingCtrl.create({
+               content: this.mensajesGenerales.espere,
+         });
+         loader.present();
+    }else{
+        loader = this.loadingCtrl.create({
+             content: this.mensajesGenerales.espereIng,
+       });
+       loader.present();
+    }
+
 
     // Realiza la peticion por medio de una promesa
     return this.http.post(url,data)

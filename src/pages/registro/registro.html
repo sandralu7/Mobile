@@ -7,7 +7,9 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Registro de Usuarios</ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.tituloIng}}</ion-title>
+
   </ion-navbar>
 
 </ion-header>
@@ -18,7 +20,9 @@
   <ion-list>
 
     <ion-item>
-      <ion-label floating>Nombre</ion-label>
+      <ion-label floating *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.nombre}}</ion-label>
+      <ion-label floating *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.nombreIng}}</ion-label>
+
       <ion-input type="text" [(ngModel)]="nombre" ></ion-input>
     </ion-item>
 
@@ -28,30 +32,44 @@
   </ion-item>
 
   <ion-item>
-    <ion-label floating>Celular</ion-label>
+    <ion-label floating *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.celular}}</ion-label>
+    <ion-label floating *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.celularIng}}</ion-label>
+
     <ion-input type="tel"  [(ngModel)]="celular"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label floating>Password</ion-label>
+    <ion-label floating *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.password}}</ion-label>
+    <ion-label floating *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.passwordIng}}</ion-label>
+
     <ion-input type="password"  [(ngModel)]="password"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label floating>Password Repeat</ion-label>
+    <ion-label floating *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.passwordRepeat}}</ion-label>
+    <ion-label floating *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.passwordRepeatIng}}</ion-label>
+
     <ion-input type="password"  [(ngModel)]="passwordver"></ion-input>
   </ion-item>
   <br><br><br>
 
-  <button  ion-button block   (click)="registrarUsuario()">
-    Aceptar</button>
+  <button *ngIf="_ajustes.ajustes.idioma=='E'"  ion-button block   (click)="registrarUsuario()">
+    {{mensajesGenerales.aceptar}}</button>
+  <button *ngIf="_ajustes.ajustes.idioma=='I'"  ion-button block   (click)="registrarUsuario()">
+      {{mensajesGenerales.aceptarIng}}</button>
 
 </ion-list>
 
-  <button ion-button
+  <button *ngIf="_ajustes.ajustes.idioma=='E'" ion-button
       color="primary"
       block
       (click)="navegarPaginaLogin()">
-    Cancelar
+    {{mensajesGenerales.cancelar}}
+  </button>
+  <button *ngIf="_ajustes.ajustes.idioma=='I'" ion-button
+      color="primary"
+      block
+      (click)="navegarPaginaLogin()">
+    {{mensajesGenerales.cancelarIng}}
   </button>
 </ion-content>

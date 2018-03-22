@@ -6,6 +6,8 @@ import { Album } from "../../interfaces/album.interface";
 import {AlbumProvider} from "../../providers/album/album";
 import { Tickets } from "../../interfaces/tickets.interface";
 
+import { AjustesProvider } from "../../providers/ajustes/ajustes";
+import {MSJ_FALTANTES, MSJ_GENERALES} from "../../data/data.mensajes";
 
 
 @Component({
@@ -21,10 +23,15 @@ export class FichasFaltantesPage {
   albumesCantidad: Album[] =[];
   ticketsSeleccionados: Tickets[] =[];
 
+  mensajesPagina: any;
+  mensajesGenerales: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private _albumes:AlbumProvider) {
+              private _albumes:AlbumProvider, public _ajustes: AjustesProvider) {
 
     this.album = this.navParams.data;
+    this.mensajesGenerales = MSJ_GENERALES;
+    this.mensajesPagina = MSJ_FALTANTES;
   }
   ionViewWillEnter(){
     this._albumes.cargar_todosPorCantidad(this.token,this.album.idAlbum,0,0);

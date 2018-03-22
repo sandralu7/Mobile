@@ -1,7 +1,10 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Secciones
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">
+      {{mensajesPagina.titulo}}
+    </ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">
+      {{mensajesPagina.tituloIng}}
     </ion-title>
     <ion-buttons>
       <button ion-button
@@ -20,7 +23,8 @@
      <ion-avatar item-start>
       <img [src]="seccion.imagenSeccion | imagen:''">
     </ion-avatar>
-    <h2>{{seccion.nombreSeccion}}</h2>
+    <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{seccion.nombreSeccion}}</h2>
+    <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{seccion.nombreSeleccionIngles}}</h2>
     <ion-icon name="search" item-right></ion-icon>
    </ion-item>
 

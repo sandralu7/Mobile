@@ -20,13 +20,15 @@ import { AjustesProvider } from "../../providers/ajustes/ajustes";
 })
 export class ConfiguracionPage {
 
-    idioma:string="";
+  idioma:string="";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController, private alertController:AlertController,private _ajustes: AjustesProvider) {
   }
 
-  selecciomarIdioma(){
-    if(this.idioma == "" || this.idioma.length==0){
+  selecciomarIdioma(idiomaSel:any){
+
+    console.log(idiomaSel);
+    if(idiomaSel == "" ){
       // Crea una alerta informando el error
       this.alertController.create({
         title:"Error ",
@@ -35,6 +37,12 @@ export class ConfiguracionPage {
       }).present()
       return;
     }
+    if(idiomaSel==1){
+      this.idioma = "I";
+    }
+    else{
+      this.idioma = "E";
+    }
     this.ingresar();
   }
 
@@ -42,7 +50,7 @@ export class ConfiguracionPage {
 
     // Se crea un loadiog con el fin de que verifique el usuario
     let loader = this.loadingCtrl.create({
-           content: "Espere por favor",
+           content: "Loading",
      });
     loader.present();
     this._ajustes.ajustes.mostrar_configuracion=false;

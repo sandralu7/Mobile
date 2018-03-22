@@ -14,7 +14,8 @@
 
 
 <ion-content padding>
- <h1>{{mensajes.ingreso}}</h1>
+ <h1 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.ingreso}}</h1>
+ <h1 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.ingresoIng}}</h1>
  <ion-list>
 
  <ion-item>
@@ -29,16 +30,26 @@
 
 </ion-list>
 
-<button ion-button block   (click)="loginUsuario()">
-  Aceptar</button>
+<button *ngIf="_ajustes.ajustes.idioma=='E'" ion-button block   (click)="loginUsuario()">
+  {{mensajesGenerales.aceptar}}</button>
+<button *ngIf="_ajustes.ajustes.idioma=='I'" ion-button block   (click)="loginUsuario()">
+    {{mensajesGenerales.aceptarIng}}</button>
 
 
 
   <button ion-button
+      *ngIf="_ajustes.ajustes.idioma=='E'"
       color="primary"
       block
       (click)="navegarPaginaRegistro()">
-    Registrarme
+    {{mensajesPagina.registrarme}}
+  </button>
+  <button ion-button
+      *ngIf="_ajustes.ajustes.idioma=='I'"
+      color="primary"
+      block
+      (click)="navegarPaginaRegistro()">
+    {{mensajesPagina.registrarmeIng}}
   </button>
 
 </ion-content>
