@@ -123,3 +123,18 @@ export const MSJ_REGISTRO ={
       usuarioErrorIng: "An error occurred entering the user"
 
 }
+
+export const MSJ_CORREO ={      
+      titulo: "Buenas ",
+      tituloIng: "Hi ",
+      asunto:"Validación Identidad PaniniExchange",
+      asuntoIng: "Validation Identity PaniniExchange",
+      cuerpo1:"Por favor ingresa con las contraseña registrada y  en seguida registra el código",
+      cuerpo1Ing: "Please enter with the registered password and then register the code",
+      cuerpo2:", con el fin de validar tu identidad.",
+      cuerpo2Ing: ", in order to validate your identity.",
+      despedida:"Muchas Gracias",
+      despedidaIng: "Thank you so much.",
+      msgUsuarioCreadoCorrectamente: "Usuario creado correctamente, por favor ingrese a su email y confirme el codigo de verificación",
+      msgUsuarioCreadoCorrectamenteIng: "User created correctly, please enter your email and confirm the verification code"
+}
