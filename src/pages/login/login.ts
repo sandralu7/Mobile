@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { AlbumPage, RegistroPage } from "../index.paginas";
 import { Http, URLSearchParams} from '@angular/http';
+import { URL_SERVICIOS} from "../../config/url.servicios";
 
 //providers
 import { AjustesProvider } from "../../providers/ajustes/ajustes";
@@ -98,7 +99,7 @@ export class LoginPage {
     data.append("USUA_CORREO", this.correo);
     data.append("USUA_CLAVE", this.contrasena);
 
-    let url="http://www.fingergroup.com.co/rest/index.php/usuario/login_usuario_geo/";
+    let url = URL_SERVICIOS + "/usuario/login_usuario_geo/";
 
     // Se crea un loadiog con el fin de que verifique el usuario
     let loader;

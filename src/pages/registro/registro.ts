@@ -6,6 +6,8 @@ import {AlbumPage, LoginPage} from "../index.paginas";
 import { AlertController } from 'ionic-angular';
 
 import { Http, URLSearchParams} from '@angular/http';
+import { URL_SERVICIOS} from "../../config/url.servicios";
+
 
 //providers
 import { AjustesProvider } from "../../providers/ajustes/ajustes";
@@ -138,7 +140,8 @@ export class RegistroPage {
     data.append("USUA_IDIOMA", "E");
 
 
-    let url="http://www.fingergroup.com.co/rest/index.php/usuario/crear_usuario_geo/";
+//    let url="http://www.fingergroup.com.co/rest/index.php/usuario/crear_usuario_geo/";
+      let url = URL_SERVICIOS + "/usuario/crear_usuario_geo/";
 
     // Se crea un loadiog con el fin de que verifique el usuario
     let loader = this.loadingCtrl.create({
