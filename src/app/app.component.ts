@@ -3,7 +3,7 @@ import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { LoginPage, AlbumPage, FichasFaltantesPage, SolicitudesEntrantesPage, SolicitudesSalientesPage } from "../pages/index.paginas";
+import { LoginPage, AlbumPage, FichasFaltantesPage, SolicitudesEntrantesPage, SolicitudesSalientesPage, ConfiguracionPage } from "../pages/index.paginas";
 
 //Providers
 import {  AjustesProvider } from "../providers/ajustes/ajustes";
@@ -24,11 +24,16 @@ export class MyApp {
     platform.ready().then(() => {
       this._ajustes.cargar_storage()
       .then( ()=>{
-        if(this._ajustes.ajustes.mostrar_login){
-          this.rootPage = LoginPage;
+        if(this._ajustes.ajustes.mostrar_configuracion){
+          this.rootPage = ConfiguracionPage;
         }else{
-          this.rootPage = AlbumPage ;
+          if(this._ajustes.ajustes.mostrar_login){
+            this.rootPage = LoginPage;
+          }else{
+            this.rootPage = AlbumPage ;
+          }
         }
+
 
         // Okay, so the platform is ready and our plugins are available.
         // Here you can do any higher level native things you might need.
