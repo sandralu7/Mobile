@@ -11,3 +11,5 @@ export {SolicitudesSalientesPage} from "./solicitudes-salientes/solicitudes-sali
 export {TabsPage} from "./tabs/tabs";
 export {HomePage} from "./home/home";
 export {ConfiguracionPage } from "./configuracion/configuracion";
+export { OlvidoContraseniaPage } from "./olvido-contrasenia/olvido-contrasenia";
+export { ConfimarUsuarioPage } from "./confimar-usuario/confimar-usuario";

@@ -22,7 +22,7 @@ import { AlbumPage,
   SolicitudesEntrantesPage,
   SolicitudesSalientesPage,
   TabsPage,
-  HomePage, ConfiguracionPage} from "../pages/index.paginas";
+  HomePage, ConfiguracionPage, ConfimarUsuarioPage, OlvidoContraseniaPage} from "../pages/index.paginas";
 
   // Storage
   import { IonicStorageModule } from '@ionic/storage';
@@ -49,7 +49,8 @@ import { AjustesProvider } from '../providers/ajustes/ajustes';
     TabsPage,
     HomePage,
     ImagenPipe,
-    ConfiguracionPage
+    ConfiguracionPage,
+    ConfimarUsuarioPage, OlvidoContraseniaPage
   ],
   imports: [
      IonicStorageModule.forRoot(),
@@ -73,7 +74,8 @@ import { AjustesProvider } from '../providers/ajustes/ajustes';
     SolicitudesSalientesPage,
     TabsPage,
     HomePage,
-    ConfiguracionPage
+    ConfiguracionPage,
+    ConfimarUsuarioPage, OlvidoContraseniaPage
   ],
   providers: [
     StatusBar,

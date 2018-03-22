@@ -3,7 +3,7 @@ import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { LoginPage, AlbumPage, FichasFaltantesPage, SolicitudesEntrantesPage, SolicitudesSalientesPage, ConfiguracionPage } from "../pages/index.paginas";
+import { LoginPage, AlbumPage, FichasFaltantesPage, SolicitudesEntrantesPage, SolicitudesSalientesPage, ConfiguracionPage,ConfimarUsuarioPage,OlvidoContraseniaPage } from "../pages/index.paginas";
 
 //Providers
 import {  AjustesProvider } from "../providers/ajustes/ajustes";
@@ -44,7 +44,7 @@ export class MyApp {
   }
 
   openPage(pagina:any){
-    
+
 
     this.rootPage = pagina;
     this.menuCtrl.close();
