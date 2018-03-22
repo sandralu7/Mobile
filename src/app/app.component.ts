@@ -22,18 +22,19 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               private menuCtrl: MenuController, private _ajustes:AjustesProvider) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      if(this._ajustes.ajustes.mostrar_login){
-        this.rootPage = LoginPage;
-      }else{
-        this.rootPage = AlbumPage ;
-      }
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      this._ajustes.cargar_storage()
+      .then( ()=>{
+        if(this._ajustes.ajustes.mostrar_login){
+          this.rootPage = LoginPage;
+        }else{
+          this.rootPage = AlbumPage ;
+        }
 
-      statusBar.styleDefault();
-      splashScreen.hide();
+        // Okay, so the platform is ready and our plugins are available.
+        // Here you can do any higher level native things you might need.
+        statusBar.styleDefault();
+        splashScreen.hide();
+      })
     });
   }
 
