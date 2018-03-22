@@ -9,4 +9,5 @@ export {RegistroPage} from "./registro/registro";
 export {SolicitudesEntrantesPage} from "./solicitudes-entrantes/solicitudes-entrantes";
 export {SolicitudesSalientesPage} from "./solicitudes-salientes/solicitudes-salientes";
 export {TabsPage} from "./tabs/tabs";
-export {HomePage} from "./home/home"
+export {HomePage} from "./home/home";
+export {ConfiguracionPage } from "./configuracion/configuracion";

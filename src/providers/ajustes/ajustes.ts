@@ -16,7 +16,9 @@ export class AjustesProvider {
   ajustes={
     mostrar_login:true,
     id_usuario:"",
-    token:""
+    token:"",
+    idioma:"",
+    mostrar_configuracion:true
   };
 
   constructor(private platform : Platform,

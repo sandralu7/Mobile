@@ -1,0 +1,34 @@
+<!--
+  Generated template for the ConfiguracionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Configuration</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>Configuration / Configuración</h3>
+  <br><br><br><br><br>
+  <h4>Select language / Seleccione Idioma:</h4>
+  <ion-item>
+  <ion-label>Select  / Seleccione </ion-label>
+  <ion-select [(ngModel)]="idioma">
+    <ion-option value="I">English</ion-option>
+    <ion-option value="E">Español</ion-option>
+  </ion-select>
+</ion-item>
+
+<br><br>
+
+<button ion-button block   (click)="selecciomarIdioma()">
+  OK</button>
+
+</ion-content>
