@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="naranja">
     <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{seccion.nombreSeccion}}</ion-title>
     <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">{{seccion.nombreSeleccionIngles}}</ion-title>
     <ion-buttons>
@@ -39,7 +39,7 @@
         <div class="card-title">{{item.numeroTicket}}</div>
         <div *ngIf="_ajustes.ajustes.idioma=='E'" class="card-subtitle">{{item.nombreTicket}}</div>
         <div *ngIf="_ajustes.ajustes.idioma=='I'" class="card-subtitle">{{item.nombreTicketIngles}}</div>
-        
+
         </ion-card>
       </ion-col>
 

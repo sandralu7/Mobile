@@ -6,13 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="naranja">
     <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
     <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.tituloIng}}</ion-title>
     <ion-buttons>
       <button ion-button
               icon-only
-              menuToggle>
+              menuToggle
+              color="azulOscuro">
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
@@ -21,18 +22,18 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding color="aguaMarina">
 
   <ion-grid>
     <ion-row *ngFor="let item of _albumes.albumes">
       <ion-col>
-        <ion-card>
+        <ion-card color="azulOscuro">
         <img [src]="item.imagenAlbum | imagen:''" (click)="navegarPaginaSecciones(item)">
         <ion-card-content>
-          <ion-card-title *ngIf="_ajustes.ajustes.idioma=='E'">
+          <ion-card-title  *ngIf="_ajustes.ajustes.idioma=='E'">
              {{item.nombreAlbum}}
           </ion-card-title>
-          <ion-card-title *ngIf="_ajustes.ajustes.idioma=='I'">
+          <ion-card-title  *ngIf="_ajustes.ajustes.idioma=='I'">
              {{item.nombreAlbum}}
           </ion-card-title>
             <p>
@@ -50,7 +51,7 @@
    <ion-infinite-scroll-content></ion-infinite-scroll-content>
  </ion-infinite-scroll>-->
 
- 
+
 
 
 </ion-content>

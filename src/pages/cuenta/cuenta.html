@@ -6,12 +6,13 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="naranja">
     <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
     <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.tituloIng}}</ion-title>
 
     <ion-buttons>
       <button ion-button
+              color="azulOscuro"
               icon-only
               menuToggle>
         <ion-icon name="menu"></ion-icon>
@@ -30,7 +31,7 @@
     <img *ngIf="_usuario.usuario.porcentajeLlenado>=60 && _usuario.usuario.porcentajeLlenado<=79" src="assets/banderas/silverIcon.png">
     <img *ngIf="_usuario.usuario.porcentajeLlenado>=0 && _usuario.usuario.porcentajeLlenado<=59" src="assets/banderas/bronzeIcon.png">
 </ion-avatar>
-  <ion-card>
+  <ion-card color="aguaMarina">
     <ion-card-header *ngIf="_ajustes.ajustes.idioma=='E'">
     {{mensajesPagina.informacionPersonal}}
     </ion-card-header>
@@ -38,7 +39,7 @@
     {{mensajesPagina.informacionPersonalIng}}
     </ion-card-header>
     <ion-item>
-      <ion-icon name="contact" item-start large></ion-icon>
+      <ion-icon name="contact" color="primary" item-start large></ion-icon>
         <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.nombre}}: </h2>
         <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.nombreIng}}: </h2>
         <p *ngIf="_ajustes.ajustes.idioma=='I'">{{_usuario.usuario.nombreUsuario}}, member since: {{_usuario.usuario.fechaCreacionUsuario}}</p>
@@ -46,12 +47,12 @@
 
     </ion-item>
     <ion-item>
-      <ion-icon name="mail" item-start large></ion-icon>
+      <ion-icon name="mail" color="rojo" item-start large></ion-icon>
         <h2>Email: </h2>
         <p>{{_usuario.usuario.correoUsuario}}</p>
     </ion-item>
     <ion-item>
-      <ion-icon name="call" item-start large></ion-icon>
+      <ion-icon name="call" color="azulOscuro" item-start large></ion-icon>
         <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.celular}}: </h2>
         <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.celularIng}}: </h2>
         <p>{{_usuario.usuario.celular}}</p>
@@ -64,14 +65,14 @@
         <p>{{_usuario.usuario.laminasRegistradas}}/682</p>
     </ion-item>
     <ion-item>
-      <ion-icon name="sad" item-start large></ion-icon>
+      <ion-icon name="sad" color="naranja" item-start large></ion-icon>
         <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasFaltantes}}: </h2>
         <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasFaltantesIng}}: </h2>
 
         <p>{{_usuario.usuario.laminasFaltantes}}/682</p>
     </ion-item>
     <ion-item>
-      <ion-icon name="images" item-start large></ion-icon>
+      <ion-icon name="images" color="secondary" item-start large></ion-icon>
         <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasRepetidas}}: </h2>
         <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasRepetidasIng}}: </h2>
 

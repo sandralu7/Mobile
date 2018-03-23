@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="aguaMarina">
     <ion-title>Configuration</ion-title>
   </ion-navbar>
 
@@ -15,22 +15,23 @@
 
 <ion-content padding>
 
-  <h3>Configuration / Configuración</h3>
-  <br><br>
+
   <h4>Select language / Seleccione Idioma:</h4>
 
-  <ion-card>
-  <ion-avatar item-start (click)=selecciomarIdioma(1)>
-    <img src="assets/banderas/inglaterra.png" >
-  </ion-avatar>
-  <div class="card-title">English</div>
+  <ion-content class="card-background-page2">
+
+  <ion-card (click)=selecciomarIdioma(1)>
+    <img src="assets/banderas/usa.png"/>
+
   </ion-card>
-  <ion-card>
-  <ion-avatar item-start (click)=selecciomarIdioma(2)>
-    <img src="assets/banderas/españa.png" >
-  </ion-avatar>
-  <div class="card-title">Español</div>
+  <br>
+  <ion-card (click)=selecciomarIdioma(2)>
+    <img src="assets/banderas/españa.png"/>
+    
+
   </ion-card>
+
+
 
 
 </ion-content>

@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="naranja">
     <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
     <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.tituloIng}}</ion-title>
 
@@ -71,4 +71,12 @@
       (click)="navegarIntercambio()">
     {{mensajesPagina.solicitarIntercambioIng}}
   </button>
+
+  <ion-fab right bottom>
+    <button ion-fab color="rojo"><ion-icon name="contacts"></ion-icon></button>
+    <ion-fab-list >
+      <button ion-fab><ion-icon name="repeat"></ion-icon></button>
+
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

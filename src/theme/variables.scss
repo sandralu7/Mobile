@@ -21,6 +21,41 @@ $app-direction: ltr;
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
+.card-background-page2 {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .profilebutton {
+    z-index: 2;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    margin: auto;
+    background-color: #B40404;
+    font-weight: bold;
+    color: #fff;
+  }
+  .card-title {
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: azulOscuro;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 70%;
+    width: 100%;
+    color: azulOscuro;
+  }
+}
 .procentaje-numero{
   z-index: 2;
   position: absolute;
@@ -33,6 +68,45 @@ $app-direction: ltr;
   color: #fff;
 }
 
+.tipoLetra{
+  font-weight: bold;
+  font-size: 20px;
+  font-color: white !important;
+}
+
+.item.item-trns {
+	border-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+	color: white;
+  position: relative;
+  bottom: 1px;
+
+}
+
+.bottom {
+    position: absolute;
+    bottom: 5%;
+    width: 90%;
+
+}
+
+
+.top {
+    position: absolute;
+    top: 10%;
+    width: 90%;
+
+}
+
+.fondo{
+background-image: url('../../../assets/banderas/appCover.jpg') ;
+background-repeat: no-repeat ;
+background-size: cover ;
+background-position: center ;
+width: 100% ;
+position: relative ;
+border: none ;
+}
 
 // Named Color Variables
 // --------------------------------------------------
@@ -47,7 +121,11 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  aguaMarina: #09C2C0,
+  naranja: #E29415,
+  rojo: #F03C0C,
+  azulOscuro: #202D78
 );
 
 

@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="naranja">
     <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
     <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.tituloIng}}</ion-title>
 
@@ -70,4 +70,6 @@
       (click)="navegarIntercambio()">
     {{mensajesPagina.solicitarIntercambioIng}}
   </button>
+
+
 </ion-content>

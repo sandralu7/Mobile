@@ -6,50 +6,50 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="azulOscuro">
     <ion-title>Login</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
- <h1 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.ingreso}}</h1>
- <h1 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.ingresoIng}}</h1>
- <ion-list>
+<ion-content padding class="fondo">
 
- <ion-item>
-   <ion-label floating>Email</ion-label>
-   <ion-input type="email" [(ngModel)]="correo" ></ion-input>
+<div class="bottom">
+ <ion-list >
+
+ <ion-item class="item item-trns text-center">
+   <ion-label class="tipoLetra">Email</ion-label>
+   <ion-input  type="email" [(ngModel)]="correo" ></ion-input>
  </ion-item>
 
- <ion-item>
-   <ion-label floating>Password</ion-label>
+ <ion-item class="item item-trns text-center">
+   <ion-label class="tipoLetra">Password</ion-label>
    <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
  </ion-item>
 
 </ion-list>
+<br>
+<br>
 
-<button *ngIf="_ajustes.ajustes.idioma=='E'" ion-button block   (click)="loginUsuario()">
+<button *ngIf="_ajustes.ajustes.idioma=='E'" color="aguaMarina"  round ion-button block   (click)="loginUsuario()">
   {{mensajesGenerales.aceptar}}</button>
-<button *ngIf="_ajustes.ajustes.idioma=='I'" ion-button block   (click)="loginUsuario()">
+<button *ngIf="_ajustes.ajustes.idioma=='I'" color="aguaMarina" round ion-button block   (click)="loginUsuario()">
     {{mensajesGenerales.aceptarIng}}</button>
 
-
-
-  <button ion-button
+  <button ion-button round
       *ngIf="_ajustes.ajustes.idioma=='E'"
-      color="primary"
+      color="aguaMarina"
       block
       (click)="navegarPaginaRegistro()">
     {{mensajesPagina.registrarme}}
   </button>
-  <button ion-button
+  <button ion-button round
       *ngIf="_ajustes.ajustes.idioma=='I'"
-      color="primary"
+      color="aguaMarina"
       block
       (click)="navegarPaginaRegistro()">
     {{mensajesPagina.registrarmeIng}}
   </button>
-
+</div>
 </ion-content>
