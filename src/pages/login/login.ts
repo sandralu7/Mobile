@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { AlbumPage, RegistroPage } from "../index.paginas";
+import { AlbumPage, RegistroPage,ConfimarUsuarioPage } from "../index.paginas";
 import { Http, URLSearchParams} from '@angular/http';
 import { URL_SERVICIOS} from "../../config/url.servicios";
 
@@ -125,6 +125,7 @@ export class LoginPage {
                     this.correo="";
                     this.contrasena="";
                     this._ajustes.ajustes.mostrar_login=true;
+                    this._ajustes.ajustes.estado_usuario=0;
                     // Crea una alerta informando el error
                     this.alertController.create({
                       title:"Error al iniciar ",
@@ -136,11 +137,18 @@ export class LoginPage {
                     this._ajustes.ajustes.mostrar_login=false;
                     this._ajustes.ajustes.id_usuario=data_resp.id_usuario;
                     this._ajustes.ajustes.token=data_resp.token;
+                    this._ajustes.ajustes.estado_usuario=data_resp.estado_usuario;
                     // Guarda en el storage la info
                     this._ajustes.guardar_storage();
                     // Hace root la paginainicial
                   //  this.navCtrl.setRoot(MenuInicialPage);
-                    this.navCtrl.setRoot(AlbumPage);
+
+                    if(data_resp.estado_usuario==0){ // No esta confirmado l correo
+                      this.navCtrl.setRoot(ConfimarUsuarioPage);
+                    }else{
+                      this.navCtrl.setRoot(AlbumPage);
+                    }
+
               }
 
             } )

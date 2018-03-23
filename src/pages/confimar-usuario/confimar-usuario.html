@@ -6,13 +6,38 @@
 -->
 <ion-header>
 
-  <ion-navbar color="naranja">
-    <ion-title>confimarUsuario</ion-title>
+  <ion-navbar color="azulOscuro">
+    <ion-title>Confirmar Usuario</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="fondo">
 
+<div class="bottom">
+
+  <ion-label *ngIf="_ajustes.ajustes.idioma=='E'" class="tipoLetra">{{mensajes.mensaje}}</ion-label>
+  <ion-label *ngIf="_ajustes.ajustes.idioma=='I'" class="tipoLetra">{{mensajes.mensajeIng}}</ion-label>
+
+ <ion-list >
+ <ion-item class="item item-trns text-center" >
+   <ion-input  type="number" [(ngModel)]="codigo" ></ion-input>
+ </ion-item>
+</ion-list>
+<br>
+<br>
+
+<button *ngIf="_ajustes.ajustes.idioma=='E'" color="aguaMarina"  round ion-button block   (click)="verificarCodigo()">
+  {{mensajesGenerales.aceptar}}</button>
+<button *ngIf="_ajustes.ajustes.idioma=='I'" color="aguaMarina" round ion-button block   (click)="verificarCodigo()">
+    {{mensajesGenerales.aceptarIng}}</button>
+
+    <button *ngIf="_ajustes.ajustes.idioma=='E'" color="aguaMarina"  round ion-button block   (click)="cancelarCodigo()">
+      {{mensajesGenerales.cancelar}}</button>
+    <button *ngIf="_ajustes.ajustes.idioma=='I'" color="aguaMarina" round ion-button block   (click)="cancelarCodigo()">
+        {{mensajesGenerales.cancelarIng}}</button>
+
+
+</div>
 </ion-content>

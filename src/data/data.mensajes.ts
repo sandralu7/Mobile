@@ -124,7 +124,7 @@ export const MSJ_REGISTRO ={
 
 }
 
-export const MSJ_CORREO ={      
+export const MSJ_CORREO ={
       titulo: "Buenas ",
       tituloIng: "Hi ",
       asunto:"Validación Identidad PaniniExchange",
@@ -137,4 +137,12 @@ export const MSJ_CORREO ={
       despedidaIng: "Thank you so much.",
       msgUsuarioCreadoCorrectamente: "Usuario creado correctamente, por favor ingrese a su email y confirme el codigo de verificación",
       msgUsuarioCreadoCorrectamenteIng: "User created correctly, please enter your email and confirm the verification code"
+}
+export const MSJ_VERIFICACION ={
+      mensaje: "Por favor ingresa el código de verificación que fue enviado a su correo electrónico. ",
+      mensajeIng: "Please enter the verification code that was sent to your email.",
+      ingreseCodigo: "Ingrese código",
+      ingreseCodigoIng: "Enter code",
+      codigoError: "Código de verificación no coincide con el enviado",
+      codigoErrorIng: "Verification code does not match the one sent."
 }
