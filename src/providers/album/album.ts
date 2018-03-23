@@ -70,7 +70,7 @@ export class AlbumProvider {
       this.http.get(url).subscribe(res =>{
        console.log(res);
        loader.dismiss();
-       if(res['ERROR']){
+       if(res.json()['error']){
          //aqui hay un error
        }else{
         this.albumesCantidad.splice(0,this.albumesCantidad.length);
