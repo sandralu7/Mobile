@@ -194,19 +194,17 @@ export class RegistroPage {
            content: "Espere por favor",
      });
     loader.present();
-    this.enviarCorreo().subscribe( ()=>{});
-    if(  this.envioCorreo==false){
-        loader.dismiss();// Cierra el loading por que ya hizo la peticion
-      return;
-    }
+
 
 
     // Realiza la peticion por medio de una promesa
     return this.http.post(url,data)
             .map( resp=>{
               let data_resp=resp.json();
-              loader.dismiss();// Cierra el loading por que ya hizo la peticion
+              //loader.dismiss();// Cierra el loading por que ya hizo la peticion
               if(data_resp.error){// Si hubo un error
+
+                     loader.dismiss();
 
                     //this._ajustes.ajustes.mostrar_login=true;
                     // Crea una alerta informando el error
@@ -216,6 +214,13 @@ export class RegistroPage {
                       buttons: ["OK"]
                     }).present()
               }else{
+                this.enviarCorreo().subscribe( ()=>{});
+                if(  this.envioCorreo==false){
+                    loader.dismiss();// Cierra el loading por que ya hizo la peticion
+                    return;
+                }
+                loader.dismiss();// Cierra el loading por que ya hizo la peticion
+
                 this.alertCtrl.create({
                   title:"Exito",
                   subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.usuarioCreadoCorrectamente:this.mensajesPagina.usuarioCreadoCorrectamenteIng,
