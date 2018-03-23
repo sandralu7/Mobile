@@ -6,38 +6,37 @@
 -->
 <ion-header>
 
-  <ion-navbar color="azulOscuro">
+  <ion-navbar color="naranja">
     <ion-title>Confirmar Usuario</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content padding>
 
-<ion-content padding class="fondo">
+  <h3 *ngIf="_ajustes.ajustes.idioma=='E'" >{{mensajes.mensaje}}</h3>
+  <h3 *ngIf="_ajustes.ajustes.idioma=='I'" >{{mensajes.mensajeIng}}</h3>
 
-<div class="bottom">
+  <ion-list>
 
-  <ion-label *ngIf="_ajustes.ajustes.idioma=='E'" class="tipoLetra">{{mensajes.mensaje}}</ion-label>
-  <ion-label *ngIf="_ajustes.ajustes.idioma=='I'" class="tipoLetra">{{mensajes.mensajeIng}}</ion-label>
+    <ion-item>
+      <ion-input placeholder="XXXXXXX" [(ngModel)]="codigo" ></ion-input>      
+    </ion-item>
 
- <ion-list >
- <ion-item class="item item-trns text-center" >
-   <ion-input  type="number" [(ngModel)]="codigo" ></ion-input>
- </ion-item>
+  <br><br><br>
+
+  <button *ngIf="_ajustes.ajustes.idioma=='E'"   ion-button block   (click)="verificarCodigo()">
+    {{mensajesGenerales.aceptar}}</button>
+  <button *ngIf="_ajustes.ajustes.idioma=='I'"  ion-button block   (click)="verificarCodigo()">
+      {{mensajesGenerales.aceptarIng}}</button>
+
+      <button *ngIf="_ajustes.ajustes.idioma=='E'"  ion-button block   (click)="cancelarCodigo()">
+        {{mensajesGenerales.cancelar}}</button>
+      <button *ngIf="_ajustes.ajustes.idioma=='I'"  ion-button block   (click)="cancelarCodigo()">
+          {{mensajesGenerales.cancelarIng}}</button>
+
+
 </ion-list>
-<br>
-<br>
-
-<button *ngIf="_ajustes.ajustes.idioma=='E'" color="aguaMarina"  round ion-button block   (click)="verificarCodigo()">
-  {{mensajesGenerales.aceptar}}</button>
-<button *ngIf="_ajustes.ajustes.idioma=='I'" color="aguaMarina" round ion-button block   (click)="verificarCodigo()">
-    {{mensajesGenerales.aceptarIng}}</button>
-
-    <button *ngIf="_ajustes.ajustes.idioma=='E'" color="aguaMarina"  round ion-button block   (click)="cancelarCodigo()">
-      {{mensajesGenerales.cancelar}}</button>
-    <button *ngIf="_ajustes.ajustes.idioma=='I'" color="aguaMarina" round ion-button block   (click)="cancelarCodigo()">
-        {{mensajesGenerales.cancelarIng}}</button>
 
 
-</div>
 </ion-content>

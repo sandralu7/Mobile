@@ -144,7 +144,8 @@ export class RegistroPage {
     datac.append("USUA_CODIGOVERIFICACION", this.codigoVerificacion);
     //datac.append("CONTENIDO", "Hola como estas Julian <br/> yucas lola");
     //datac.append("ASUNTO", "prueba gmail");
-    datac.append("EMAIL_DESTINATARIO", "julianrojasing@gmail.com");
+    //datac.append("EMAIL_DESTINATARIO", "julianrojasing@gmail.com");
+    datac.append("EMAIL_DESTINATARIO", this.email);
       let url = URL_SERVICIOS + "/mail/enviar_correo/";
       return this.http.post(url,datac)
               .map( resp=>{

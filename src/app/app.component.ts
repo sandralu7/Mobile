@@ -27,11 +27,15 @@ export class MyApp {
         if(this._ajustes.ajustes.mostrar_configuracion){
           this.rootPage = ConfiguracionPage;
         }else{
-          if(this._ajustes.ajustes.mostrar_login){
-            this.rootPage = LoginPage;
-          }else{
-            this.rootPage = AlbumPage ;
-          }
+            if(this._ajustes.ajustes.mostrar_login){
+              this.rootPage = LoginPage;
+            }else{
+              if(this._ajustes.ajustes.estado_usuario==0){
+                 this.rootPage = ConfiguracionPage;
+              }else{
+                this.rootPage = AlbumPage ;
+              }
+            }
         }
 
 
