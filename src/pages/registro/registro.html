@@ -53,22 +53,22 @@
   </ion-item>
   <br><br><br>
 
-  <button *ngIf="_ajustes.ajustes.idioma=='E'"  ion-button block   (click)="registrarUsuario()">
+  <button *ngIf="_ajustes.ajustes.idioma=='E'"  ion-button   color="aguaMarina"  round block (click)="registrarUsuario()">
     {{mensajesGenerales.aceptar}}</button>
-  <button *ngIf="_ajustes.ajustes.idioma=='I'"  ion-button block   (click)="registrarUsuario()">
+  <button *ngIf="_ajustes.ajustes.idioma=='I'"  ion-button  color="aguaMarina"  round block (click)="registrarUsuario()">
       {{mensajesGenerales.aceptarIng}}</button>
 
 </ion-list>
 
   <button *ngIf="_ajustes.ajustes.idioma=='E'" ion-button
       color="primary"
-      block
+      color="aguaMarina"  round block
       (click)="navegarPaginaLogin()">
     {{mensajesGenerales.cancelar}}
   </button>
   <button *ngIf="_ajustes.ajustes.idioma=='I'" ion-button
       color="primary"
-      block
+      color="aguaMarina"  round block
       (click)="navegarPaginaLogin()">
     {{mensajesGenerales.cancelarIng}}
   </button>

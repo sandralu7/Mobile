@@ -20,19 +20,19 @@
   <ion-list>
 
     <ion-item>
-      <ion-input placeholder="XXXXXXX" [(ngModel)]="codigo" ></ion-input>      
+      <ion-input placeholder="XXXXXXX" [(ngModel)]="codigo" ></ion-input>
     </ion-item>
 
   <br><br><br>
 
-  <button *ngIf="_ajustes.ajustes.idioma=='E'"   ion-button block   (click)="verificarCodigo()">
+  <button *ngIf="_ajustes.ajustes.idioma=='E'"   ion-button color="aguaMarina"  round   (click)="verificarCodigo()">
     {{mensajesGenerales.aceptar}}</button>
-  <button *ngIf="_ajustes.ajustes.idioma=='I'"  ion-button block   (click)="verificarCodigo()">
+  <button *ngIf="_ajustes.ajustes.idioma=='I'"  ion-button color="aguaMarina"  round  (click)="verificarCodigo()">
       {{mensajesGenerales.aceptarIng}}</button>
 
-      <button *ngIf="_ajustes.ajustes.idioma=='E'"  ion-button block   (click)="cancelarCodigo()">
+      <button *ngIf="_ajustes.ajustes.idioma=='E'" ion-button color="aguaMarina"  round   (click)="cancelarCodigo()">
         {{mensajesGenerales.cancelar}}</button>
-      <button *ngIf="_ajustes.ajustes.idioma=='I'"  ion-button block   (click)="cancelarCodigo()">
+      <button *ngIf="_ajustes.ajustes.idioma=='I'" ion-button color="aguaMarina"  round   (click)="cancelarCodigo()">
           {{mensajesGenerales.cancelarIng}}</button>
 
 

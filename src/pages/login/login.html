@@ -19,12 +19,12 @@
  <ion-list >
 
  <ion-item class="item item-trns text-center">
-   <ion-label class="tipoLetra">Email</ion-label>
+   <ion-label floating class="tipoLetra">Email</ion-label>
    <ion-input  type="email" [(ngModel)]="correo" ></ion-input>
  </ion-item>
 
  <ion-item class="item item-trns text-center">
-   <ion-label class="tipoLetra">Password</ion-label>
+   <ion-label floating class="tipoLetra">Password</ion-label>
    <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
  </ion-item>
 
@@ -32,9 +32,9 @@
 <br>
 <br>
 
-<button *ngIf="_ajustes.ajustes.idioma=='E'" color="aguaMarina"  round ion-button block   (click)="loginUsuario()">
+<button *ngIf="_ajustes.ajustes.idioma=='E'" color="aguaMarina"  round block ion-button   (click)="loginUsuario()">
   {{mensajesGenerales.aceptar}}</button>
-<button *ngIf="_ajustes.ajustes.idioma=='I'" color="aguaMarina" round ion-button block   (click)="loginUsuario()">
+<button *ngIf="_ajustes.ajustes.idioma=='I'" color="aguaMarina" round block ion-button   (click)="loginUsuario()">
     {{mensajesGenerales.aceptarIng}}</button>
 
   <button ion-button round

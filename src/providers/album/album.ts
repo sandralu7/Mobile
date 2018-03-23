@@ -68,6 +68,7 @@ export class AlbumProvider {
     loader.present();
 
       this.http.get(url).subscribe(res =>{
+      console.log("RESPUESTa");
        console.log(res);
        loader.dismiss();
        if(res.json()['error']){
