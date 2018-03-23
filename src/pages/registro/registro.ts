@@ -15,7 +15,7 @@ import { LoadingController} from 'ionic-angular';
 import 'rxjs/add/operator/map'
 
 
-import {MSJ_REGISTRO, MSJ_GENERALES} from "../../data/data.mensajes";
+import {MSJ_REGISTRO, MSJ_GENERALES, MSJ_CORREO} from "../../data/data.mensajes";
 
 /**
  * Generated class for the RegistroPage page.
@@ -37,9 +37,11 @@ export class RegistroPage {
   password:string="";
   passwordver:string="";
   envioCorreo: any;
+  codigoVerificacion: any;
 
   mensajesPagina: any;
   mensajesGenerales: any;
+  mensajesCorreo: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public loadingCtrl: LoadingController,
@@ -48,6 +50,8 @@ export class RegistroPage {
               public http : Http) {
                 this.mensajesGenerales = MSJ_GENERALES;
                 this.mensajesPagina = MSJ_REGISTRO;
+                this.mensajesCorreo = MSJ_CORREO;
+
   }
 
   ionViewDidLoad() {
@@ -123,6 +127,7 @@ export class RegistroPage {
       }).present()
       return;
     }
+    this.codigoVerificacion=Math.round(Math.random() * (999999 -1) + 999999);
     this.registrarServicio().subscribe( ()=>{});
 
 
@@ -130,13 +135,22 @@ export class RegistroPage {
 
   enviarCorreo(){
     let datac=new URLSearchParams();
-    datac.append("CONTENIDO", "Hola como estas Julian <br/> yucas lola");
-    datac.append("ASUNTO", "prueba gmail");
+    datac.append("ASUNTO",  (this._ajustes.ajustes.idioma=='E') ? this.mensajesCorreo.asunto :this.mensajesCorreo.asuntoIng);
+    datac.append("SALUDO",  (this._ajustes.ajustes.idioma=='E') ? this.mensajesCorreo.titulo :this.mensajesCorreo.tituloIng);
+    datac.append("NOMBRE", this.nombre);
+    datac.append("MENSAJE1",  (this._ajustes.ajustes.idioma=='E') ? this.mensajesCorreo.cuerpo1 :this.mensajesCorreo.cuerpo1Ing);
+    datac.append("MENSAJE2",  (this._ajustes.ajustes.idioma=='E') ? this.mensajesCorreo.cuerpo2 :this.mensajesCorreo.cuerpo2Ing);
+    datac.append("DESPEDIDA",  (this._ajustes.ajustes.idioma=='E') ? this.mensajesCorreo.despedida :this.mensajesCorreo.despedidaIng);
+    datac.append("USUA_CODIGOVERIFICACION", this.codigoVerificacion);
+    //datac.append("CONTENIDO", "Hola como estas Julian <br/> yucas lola");
+    //datac.append("ASUNTO", "prueba gmail");
     datac.append("EMAIL_DESTINATARIO", "julianrojasing@gmail.com");
       let url = URL_SERVICIOS + "/mail/enviar_correo/";
       return this.http.post(url,datac)
               .map( resp=>{
                 let data_resp=resp.json();
+                console.log("aNTES DE EVALUAR");
+                console.log(data_resp);
 
                 if(data_resp.error){// Si hubo un error al enviar
                     this.envioCorreo=false;
@@ -149,7 +163,9 @@ export class RegistroPage {
 
 
                 }else{
+                  this.codigoVerificacion=data_resp.randomId;
                   console.log("Envio Mail");
+                  console.log(this.codigoVerificacion);
                   this.envioCorreo=true;
                 }
               } )
@@ -165,7 +181,8 @@ export class RegistroPage {
     data.append("USUA_CLAVE", this.password);
     data.append("USUA_CELULAR", this.celular);
     data.append("USUA_LOCALIZACION", loca);
-    data.append("USUA_IDIOMA", "E");
+    data.append("USUA_IDIOMA", this._ajustes.ajustes.idioma);
+    data.append("USUA_CODIGOVERIFICACION", this.codigoVerificacion);
 
 
 //    let url="http://www.fingergroup.com.co/rest/index.php/usuario/crear_usuario_geo/";
@@ -181,6 +198,8 @@ export class RegistroPage {
         loader.dismiss();// Cierra el loading por que ya hizo la peticion
       return;
     }
+
+
     // Realiza la peticion por medio de una promesa
     return this.http.post(url,data)
             .map( resp=>{
