@@ -83,7 +83,7 @@ export class FichasTodasPage {
 
           }
         },{
-          text: (this._ajustes.ajustes.idioma=='E') ? this.mensajesGenerales.cancelar:this.mensajesGenerales.cancelarIng,
+          text: (this._ajustes.ajustes.idioma=='E') ? this.mensajesGenerales.cancelar:this.mensajesGenerales  .cancelarIng,
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
