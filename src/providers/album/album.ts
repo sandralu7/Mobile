@@ -116,6 +116,7 @@ export class AlbumProvider {
           subTitle: (this.ajustes.ajustes.idioma=='E') ? 'No tiene láminas repetidas':' You don´t have repeated Stickers',
           buttons: ["OK"]
 
+
       }).present();
 
     });

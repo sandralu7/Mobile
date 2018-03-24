@@ -14,3 +14,12 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.fondo{
+background-image: url('https://firebasestorage.googleapis.com/v0/b/gag-db3ba.appspot.com/o/appCover.jpg?alt=media&token=511607a7-1d72-4f90-b73e-50599bf212f9') ;
+background-repeat: no-repeat ;
+background-size: cover ;
+background-position: center ;
+width: 100% ;
+position: relative ;
+border: none ;
+}
