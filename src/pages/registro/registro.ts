@@ -127,7 +127,7 @@ export class RegistroPage {
       }).present()
       return;
     }
-    this.codigoVerificacion=Math.round(Math.random() * (999999 -1) + 999999);
+    this.codigoVerificacion=Math.round(Math.random() * (999 -1) + 999);
     this.registrarServicio().subscribe( ()=>{});
 
 

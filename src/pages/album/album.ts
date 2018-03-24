@@ -35,6 +35,27 @@ export class AlbumPage {
     this.navCtrl.push(TabsPage, {'album': album});
   //  this.navCtrl.push(HomePage, {'album': album});
   }
+  
+    cerrarSesion(){
+      console.log('Entre a cerrar sesion');
+      this._ajustes.ajustes.mostrar_login=false;
+      this._ajustes.ajustes.id_usuario=null;
+      this._ajustes.ajustes.token=null;
+      this._ajustes.ajustes.estado_usuario=null
+      this._ajustes.ajustes.idioma=null;
+      this._ajustes.ajustes.mostrar_configuracion=true;
+      // Guarda en el storage la info
+      this._ajustes.guardar_storage();
+      this._ajustes.eliminar_storage();
+      // Establece como Root de la pagina inicial
+
+      this.navCtrl.setRoot(ConfiguracionPage);
+
+      console.log('sali cerrar sesion 1');
+
+
+
+    }
 
 
 

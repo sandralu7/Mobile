@@ -33,6 +33,8 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
 import { IntercambiosProvider } from '../providers/intercambios/intercambios';
 import { AjustesProvider } from '../providers/ajustes/ajustes';
 
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -78,6 +80,7 @@ import { AjustesProvider } from '../providers/ajustes/ajustes';
     ConfimarUsuarioPage, OlvidoContraseniaPage
   ],
   providers: [
+
     StatusBar,
     SplashScreen,
     HttpModule,
@@ -89,4 +92,5 @@ import { AjustesProvider } from '../providers/ajustes/ajustes';
     AjustesProvider
   ]
 })
-export class AppModule {}
+export class AppModule {
+}

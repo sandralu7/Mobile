@@ -121,11 +121,24 @@ export class LoginPage {
             .map( resp=>{
               let data_resp=resp.json();
               loader.dismiss();// Cierra el loading por que ya hizo la peticion
-              if(data_resp.error){// Si gubo un error
+              console.log("Datos login  :"+data_resp);
+              console.log("Datos login  :"+resp);
+              if(data_resp.error){// Si hubo un error
                     this.correo="";
                     this.contrasena="";
                     this._ajustes.ajustes.mostrar_login=true;
                     this._ajustes.ajustes.estado_usuario=0;
+                    console.log('Error Login Usuario');
+                    this._ajustes.ajustes.mostrar_login=true;
+                    this._ajustes.ajustes.id_usuario=null;
+                    this._ajustes.ajustes.token=null;
+                    this._ajustes.ajustes.estado_usuario=null
+                    this._ajustes.ajustes.idioma=null;
+                    // Guarda en el storage la info
+                    this._ajustes.guardar_storage();
+                    this._ajustes.eliminar_storage();
+
+
                     // Crea una alerta informando el error
                     this.alertController.create({
                       title:"Error al iniciar ",
@@ -138,6 +151,7 @@ export class LoginPage {
                     this._ajustes.ajustes.id_usuario=data_resp.id_usuario;
                     this._ajustes.ajustes.token=data_resp.token;
                     this._ajustes.ajustes.estado_usuario=data_resp.estado_usuario;
+                    
                     // Guarda en el storage la info
                     this._ajustes.guardar_storage();
                     // Hace root la paginainicial

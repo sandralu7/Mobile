@@ -12,6 +12,9 @@ import {AlertController} from "ionic-angular";
 import {MSJ_GENERALES} from "../data/data.mensajes";
 
 
+
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -80,10 +83,20 @@ export class MyApp {
   cerrarSesion(){
     console.log('Entre a cerrar sesion');
     this._ajustes.ajustes.mostrar_login=false;
+    this._ajustes.ajustes.id_usuario=null;
+    this._ajustes.ajustes.token=null;
+    this._ajustes.ajustes.estado_usuario=null
+    this._ajustes.ajustes.idioma=null;
+    this._ajustes.ajustes.mostrar_configuracion=true;
+    // Guarda en el storage la info
+    this._ajustes.guardar_storage();
     this._ajustes.eliminar_storage();
     // Establece como Root de la pagina inicial
-    this.rootPage = ConfiguracionPage;
+
+  //  this.navCtrl.setRoot(LoginPage);
     this.menuCtrl.close();
+    console.log('sali cerrar sesion 1');
+    this.rootPage = ConfiguracionPage;
     console.log('sali cerrar sesion');
 
   }

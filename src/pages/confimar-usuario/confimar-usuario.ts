@@ -117,7 +117,7 @@ export class ConfimarUsuarioPage {
                  }
               }else{
                     // Guadra la informacion retornada
-                    this._ajustes.ajustes.estado_usuario=2;
+                    this._ajustes.ajustes.estado_usuario=1;
                     // Guarda en el storage la info
                     this._ajustes.guardar_storage();
                     // Hace root la paginainicial
