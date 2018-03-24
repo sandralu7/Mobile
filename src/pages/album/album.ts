@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TabsPage, LoginPage, ConfiguracionPage } from "../index.paginas";
+import { TabsPage, LoginPage} from "../index.paginas";
 
 import { AlbumProvider } from "../../providers/album/album";
 import { Album } from "../../interfaces/album.interface";
@@ -35,7 +35,7 @@ export class AlbumPage {
     this.navCtrl.push(TabsPage, {'album': album});
   //  this.navCtrl.push(HomePage, {'album': album});
   }
-  
+
     cerrarSesion(){
       console.log('Entre a cerrar sesion');
       this._ajustes.ajustes.mostrar_login=false;
@@ -49,7 +49,7 @@ export class AlbumPage {
       this._ajustes.eliminar_storage();
       // Establece como Root de la pagina inicial
 
-      this.navCtrl.setRoot(ConfiguracionPage);
+      this.navCtrl.setRoot(LoginPage);
 
       console.log('sali cerrar sesion 1');
 

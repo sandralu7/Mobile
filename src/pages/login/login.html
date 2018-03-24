@@ -18,6 +18,8 @@
 <div class="bottom">
  <ion-list >
 
+
+
  <ion-item class="item text-center item-trns">
    <ion-label floating class="tipoLetra">Email</ion-label>
    <ion-input  type="email" [(ngModel)]="correo" ></ion-input>
@@ -32,24 +34,16 @@
 <br>
 <br>
 
-<button *ngIf="_ajustes.ajustes.idioma=='E'" color="aguaMarina"  round block ion-button   (click)="loginUsuario()">
-  {{mensajesGenerales.aceptar}}</button>
-<button *ngIf="_ajustes.ajustes.idioma=='I'" color="aguaMarina" round block ion-button   (click)="loginUsuario()">
-    {{mensajesGenerales.aceptarIng}}</button>
+<button color="aguaMarina"  round block ion-button   (click)="loginUsuario()">
+ACCEPT / ACEPTAR</button>
+
 
   <button ion-button round
-      *ngIf="_ajustes.ajustes.idioma=='E'"
       color="aguaMarina"
       block
       (click)="navegarPaginaRegistro()">
-    {{mensajesPagina.registrarme}}
+  SIGN IN / REGISTRARME
   </button>
-  <button ion-button round
-      *ngIf="_ajustes.ajustes.idioma=='I'"
-      color="aguaMarina"
-      block
-      (click)="navegarPaginaRegistro()">
-    {{mensajesPagina.registrarmeIng}}
-  </button>
+
 </div>
 </ion-content>

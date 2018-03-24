@@ -16,6 +16,7 @@ export const MSJ_GENERALES =
         cancelarIng: "Cancel",
         espere: "Espere por favor",
         espereIng: "Loading",
+        espereIngEsp: "Loading / Espere por favor",
         mensajeAppFree: "Está funcionalidad estará disponible proximamente en la versión pro",
         mensajeAppFreeIng: "This functionality will be available soon in the pro app version "
 

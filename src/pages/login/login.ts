@@ -103,17 +103,12 @@ export class LoginPage {
 
     // Se crea un loadiog con el fin de que verifique el usuario
     let loader;
-    if(this._ajustes.ajustes.idioma=='E'){
+
         loader = this.loadingCtrl.create({
-               content: this.mensajesGenerales.espere,
+               content: this.mensajesGenerales.espereIngEsp,
          });
          loader.present();
-    }else{
-        loader = this.loadingCtrl.create({
-             content: this.mensajesGenerales.espereIng,
-       });
-       loader.present();
-    }
+
 
 
     // Realiza la peticion por medio de una promesa
@@ -141,7 +136,7 @@ export class LoginPage {
 
                     // Crea una alerta informando el error
                     this.alertController.create({
-                      title:"Error al iniciar ",
+                      title:"Error Login ",
                       subTitle: data_resp.mensaje,
                       buttons: ["OK"]
                     }).present()
@@ -149,9 +144,10 @@ export class LoginPage {
                     // Guadra la informacion retornada
                     this._ajustes.ajustes.mostrar_login=false;
                     this._ajustes.ajustes.id_usuario=data_resp.id_usuario;
+                    this._ajustes.ajustes.idioma=data_resp.lenguaje;
                     this._ajustes.ajustes.token=data_resp.token;
                     this._ajustes.ajustes.estado_usuario=data_resp.estado_usuario;
-                    
+
                     // Guarda en el storage la info
                     this._ajustes.guardar_storage();
                     // Hace root la paginainicial

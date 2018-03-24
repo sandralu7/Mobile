@@ -10,6 +10,5 @@ export {SolicitudesEntrantesPage} from "./solicitudes-entrantes/solicitudes-entr
 export {SolicitudesSalientesPage} from "./solicitudes-salientes/solicitudes-salientes";
 export {TabsPage} from "./tabs/tabs";
 export {HomePage} from "./home/home";
-export {ConfiguracionPage } from "./configuracion/configuracion";
 export { OlvidoContraseniaPage } from "./olvido-contrasenia/olvido-contrasenia";
 export { ConfimarUsuarioPage } from "./confimar-usuario/confimar-usuario";

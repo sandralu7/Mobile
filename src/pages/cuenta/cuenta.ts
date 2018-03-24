@@ -5,7 +5,7 @@ import {UsuarioProvider} from "../../providers/usuario/usuario";
 import { AjustesProvider } from "../../providers/ajustes/ajustes";
 import {MSJ_CUENTA, MSJ_GENERALES} from "../../data/data.mensajes";
 
-import { ConfiguracionPage } from "../index.paginas";
+import { LoginPage } from "../index.paginas";
 
 /**
  * Generated class for the CuentaPage page.
@@ -53,7 +53,7 @@ export class CuentaPage {
     this._ajustes.eliminar_storage();
     // Establece como Root de la pagina inicial
 
-    this.navCtrl.setRoot(ConfiguracionPage);
+    this.navCtrl.setRoot(LoginPage);
 
     console.log('sali cerrar sesion 1');
 

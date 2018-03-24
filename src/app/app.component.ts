@@ -3,7 +3,7 @@ import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { LoginPage, AlbumPage, FichasFaltantesPage, SolicitudesEntrantesPage, SolicitudesSalientesPage, ConfiguracionPage,ConfimarUsuarioPage,OlvidoContraseniaPage } from "../pages/index.paginas";
+import { LoginPage, AlbumPage, FichasFaltantesPage, SolicitudesEntrantesPage, SolicitudesSalientesPage, ConfimarUsuarioPage,OlvidoContraseniaPage } from "../pages/index.paginas";
 
 //Providers
 import {  AjustesProvider } from "../providers/ajustes/ajustes";
@@ -34,19 +34,17 @@ export class MyApp {
     platform.ready().then(() => {
       this._ajustes.cargar_storage()
       .then( ()=>{
-        if(this._ajustes.ajustes.mostrar_configuracion){
-          this.rootPage = ConfiguracionPage;
-        }else{
+
             if(this._ajustes.ajustes.mostrar_login){
               this.rootPage = LoginPage;
             }else{
               if(this._ajustes.ajustes.estado_usuario==0){
-                 this.rootPage = ConfiguracionPage;
+                 this.rootPage = ConfimarUsuarioPage;
               }else{
                 this.rootPage = AlbumPage ;
               }
             }
-        }
+
 
 
         // Okay, so the platform is ready and our plugins are available.
@@ -94,10 +92,11 @@ export class MyApp {
     // Establece como Root de la pagina inicial
 
   //  this.navCtrl.setRoot(LoginPage);
-    this.menuCtrl.close();
+
     console.log('sali cerrar sesion 1');
-    this.rootPage = ConfiguracionPage;
+    this.rootPage = LoginPage;
     console.log('sali cerrar sesion');
+    this.menuCtrl.close();
 
   }
   closeMenu(){

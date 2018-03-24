@@ -20,6 +20,14 @@
   <ion-list>
 
     <ion-item>
+   <ion-label>Lenguaje</ion-label>
+   <ion-select [(ngModel)]="_ajustes.ajustes.idioma">
+     <ion-option value="E">Español</ion-option>
+     <ion-option value="I">Ingles</ion-option>
+   </ion-select>
+ </ion-item>
+
+    <ion-item>
       <ion-label floating *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.nombre}}</ion-label>
       <ion-label floating *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.nombreIng}}</ion-label>
 
@@ -27,7 +35,7 @@
     </ion-item>
 
   <ion-item>
-    <ion-label floating>Email</ion-label>
+    <ion-label floating  *ngIf="_ajustes.ajustes.idioma!=''" >Email</ion-label>
     <ion-input type="email"  [(ngModel)]="email"></ion-input>
   </ion-item>
 
