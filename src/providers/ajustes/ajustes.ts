@@ -22,6 +22,8 @@ export class AjustesProvider {
     estado_usuario:0
   };
 
+  banderaAppFree=true;
+
   constructor(private platform : Platform,
               private storage : Storage) {
     console.log('Hello AjustesProvider Provider');

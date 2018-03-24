@@ -66,7 +66,7 @@ export class AlbumProvider {
            content: (this.ajustes.ajustes.idioma=='E') ? 'Espere por favor':'Loading',
      });
     loader.present();
-
+      console.log("Aqui voy antes del get");
       this.http.get(url).subscribe(res =>{
       console.log("RESPUESTa");
        console.log(res);

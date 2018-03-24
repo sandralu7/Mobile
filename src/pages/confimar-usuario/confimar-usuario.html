@@ -25,14 +25,14 @@
 
   <br><br><br>
 
-  <button *ngIf="_ajustes.ajustes.idioma=='E'"   ion-button color="aguaMarina"  round   (click)="verificarCodigo()">
+  <button *ngIf="_ajustes.ajustes.idioma=='E'"   ion-button color="aguaMarina"  round block  (click)="verificarCodigo()">
     {{mensajesGenerales.aceptar}}</button>
-  <button *ngIf="_ajustes.ajustes.idioma=='I'"  ion-button color="aguaMarina"  round  (click)="verificarCodigo()">
+  <button *ngIf="_ajustes.ajustes.idioma=='I'"  ion-button color="aguaMarina"  round block (click)="verificarCodigo()">
       {{mensajesGenerales.aceptarIng}}</button>
 
-      <button *ngIf="_ajustes.ajustes.idioma=='E'" ion-button color="aguaMarina"  round   (click)="cancelarCodigo()">
+      <button *ngIf="_ajustes.ajustes.idioma=='E'" ion-button color="aguaMarina"  round  block (click)="cancelarCodigo()">
         {{mensajesGenerales.cancelar}}</button>
-      <button *ngIf="_ajustes.ajustes.idioma=='I'" ion-button color="aguaMarina"  round   (click)="cancelarCodigo()">
+      <button *ngIf="_ajustes.ajustes.idioma=='I'" ion-button color="aguaMarina"  round  block (click)="cancelarCodigo()">
           {{mensajesGenerales.cancelarIng}}</button>
 
 

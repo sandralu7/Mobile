@@ -7,6 +7,10 @@ import { LoginPage, AlbumPage, FichasFaltantesPage, SolicitudesEntrantesPage, So
 
 //Providers
 import {  AjustesProvider } from "../providers/ajustes/ajustes";
+import {AlertController} from "ionic-angular";
+
+import {MSJ_GENERALES} from "../data/data.mensajes";
+
 
 @Component({
   templateUrl: 'app.html'
@@ -16,11 +20,14 @@ export class MyApp {
   intercambios = FichasFaltantesPage;
   solicitudesEntrantes =  SolicitudesEntrantesPage;
   solicitudesSalientes = SolicitudesSalientesPage;
+  mensajesGenerales: any;
 
   rootPage:any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
-              private menuCtrl: MenuController, private _ajustes:AjustesProvider) {
+              private menuCtrl: MenuController, private _ajustes:AjustesProvider,
+              public alertCtl:AlertController) {
+    this.mensajesGenerales = MSJ_GENERALES;
     platform.ready().then(() => {
       this._ajustes.cargar_storage()
       .then( ()=>{
@@ -47,19 +54,37 @@ export class MyApp {
     });
   }
 
-  openPage(pagina:any){
+  openPage(nombrePagina:string, pagina:any){
+
+    if(nombrePagina=='intercambios' || nombrePagina=='solicitudesEntrantes' ||  nombrePagina=='solicitudesSalientes'){
 
 
-    this.rootPage = pagina;
-    this.menuCtrl.close();
+        if(this._ajustes.banderaAppFree){
+          this.alertCtl.create({
+              title: "Info",
+              subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesGenerales.mensajeAppFree:this.mensajesGenerales.mensajeAppFreeIng,
+              buttons: ["OK"]
+
+          }).present();
+        }else{
+          this.rootPage = pagina;
+          this.menuCtrl.close();
+        }
+    }
+    else{
+      this.rootPage = pagina;
+      this.menuCtrl.close();
+    }
   }
 
   cerrarSesion(){
+    console.log('Entre a cerrar sesion');
     this._ajustes.ajustes.mostrar_login=false;
     this._ajustes.eliminar_storage();
     // Establece como Root de la pagina inicial
     this.rootPage = ConfiguracionPage;
     this.menuCtrl.close();
+    console.log('sali cerrar sesion');
 
   }
   closeMenu(){

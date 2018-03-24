@@ -8,7 +8,7 @@ import { Tickets } from "../../interfaces/tickets.interface";
 
 import { AjustesProvider } from "../../providers/ajustes/ajustes";
 import {MSJ_FALTANTES, MSJ_GENERALES} from "../../data/data.mensajes";
-
+import {AlertController} from "ionic-angular";
 
 @Component({
   selector: 'page-fichas-faltantes',
@@ -27,7 +27,8 @@ export class FichasFaltantesPage {
   mensajesGenerales: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private _albumes:AlbumProvider, public _ajustes: AjustesProvider) {
+              private _albumes:AlbumProvider, public _ajustes: AjustesProvider,
+              public alertCtl:AlertController) {
 
     this.album = this.navParams.data;
     this.mensajesGenerales = MSJ_GENERALES;
@@ -42,7 +43,17 @@ export class FichasFaltantesPage {
   }
 
   navegarIntercambio(){
-    this.navCtrl.push(IntercambioPage);
+
+    if(this._ajustes.banderaAppFree){
+      this.alertCtl.create({
+          title: "Info",
+          subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesGenerales.mensajeAppFree:this.mensajesGenerales.mensajeAppFreeIng,
+          buttons: ["OK"]
+
+      }).present();
+    }else{
+      this.navCtrl.push(IntercambioPage);
+    }
   }
 
   anadirAlista(ticket:Tickets){

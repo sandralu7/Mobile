@@ -15,7 +15,9 @@ export const MSJ_GENERALES =
         cancelar: "Cancelar",
         cancelarIng: "Cancel",
         espere: "Espere por favor",
-        espereIng: "Loading"
+        espereIng: "Loading",
+        mensajeAppFree: "Está funcionalidad estará disponible proximamente en la versión pro",
+        mensajeAppFreeIng: "This functionality will be available soon in the pro app version "
 
 
 
@@ -25,7 +27,7 @@ export const MSJ_ALBUMES =
 {
 
         titulo: "Albumes",
-        tituloIng: "Albums"
+        tituloIng: "Albums",
 
 }
 

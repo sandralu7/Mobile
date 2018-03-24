@@ -6,16 +6,16 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <button  ion-item (click)="openPage(album)"><ion-icon name="home"></ion-icon>
+      <button  ion-item (click)="openPage('album',album)"><ion-icon name="home"></ion-icon>
         Inicio
       </button>
-      <button ion-item (click)="openPage(intercambios)"><ion-icon name="repeat"></ion-icon>
+      <button ion-item (click)="openPage('intercambios',intercambios)"><ion-icon name="repeat"></ion-icon>
         Intercambios
       </button>
-      <button ion-item (click)="openPage(solicitudesEntrantes)"><ion-icon name="hand"></ion-icon>
+      <button ion-item (click)="openPage('solicitudesEntrantes',solicitudesEntrantes)"><ion-icon name="hand"></ion-icon>
         Solicitudes Entrantes
       </button>
-      <button ion-item (click)="openPage(solicitudesSalientes)"><ion-icon name="chatbubbles"></ion-icon>
+      <button ion-item (click)="openPage('solicitudesSalientes',solicitudesSalientes)"><ion-icon name="chatbubbles"></ion-icon>
         Solicitudes Salientes
       </button>
       <button ion-item (click)="cerrarSesion()"><ion-icon name="key"></ion-icon>

@@ -54,13 +54,14 @@ export class FichasTodasPage {
         {
 
           text: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.eliminar:this.mensajesPagina.eliminarIng,
-
+          icon: 'trash',
           role: 'destructive',
           handler: () => {
             console.log('Destructive clicked');
             if(ticket.cantidad == 0){
               this.alertCtl.create({
                   title: "Error",
+
                   subTitle: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.noLaminasEliminar:this.mensajesPagina.noLaminasEliminarIng,
                   buttons: ["OK"]
 
@@ -74,6 +75,7 @@ export class FichasTodasPage {
           }
         },{
           text: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.anadir:this.mensajesPagina.anadirIng,
+          icon: 'add',
           handler: () => {
             console.log('Archive clicked');
             ticket.cantidad = parseInt(ticket.cantidad.toString())+1;
@@ -81,7 +83,7 @@ export class FichasTodasPage {
 
           }
         },{
-          text: (this._ajustes.ajustes.idioma=='E') ? this.mensajesPagina.cancelar:this.mensajesPagina.cancelarIng,
+          text: (this._ajustes.ajustes.idioma=='E') ? this.mensajesGenerales.cancelar:this.mensajesGenerales.cancelarIng,
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
