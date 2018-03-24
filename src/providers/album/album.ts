@@ -10,6 +10,7 @@ import { Album } from "../../interfaces/album.interface";
 import { ALBUMS } from "../../data/data2";
 import {AjustesProvider} from "../ajustes/ajustes";
 import { LoadingController} from 'ionic-angular';
+import { Observable } from "rxjs/Observable";
 
 /*
   Generated class for the AlbumProvider provider.
@@ -28,7 +29,7 @@ export class AlbumProvider {
   albumesCantidad: Album[] =[];
 
   constructor(public http: Http, public alertCtl:AlertController,
-        private ajustes:AjustesProvider, public loadingCtrl: LoadingController,) {
+        private ajustes:AjustesProvider, public loadingCtrl: LoadingController) {
     this.idUsuario = this.ajustes.ajustes.id_usuario;
     this.cargar_todos();
     //this.albumes = ALBUMS.slice(0);
@@ -44,7 +45,27 @@ export class AlbumProvider {
      });
     loader.present();
 
-      this.http.get(url).subscribe(res =>{
+
+    return new Promise( (resolve, reject) => {
+        this.http.get(url).map(res=>res.json())
+        .subscribe(
+            data => {
+              loader.dismiss();
+              this.albumes.push(...data['ALBUMS']);
+              resolve(data)
+            },
+            error => {
+              this.alertCtl.create({
+                  title: "Error",
+                  subTitle: (this.ajustes.ajustes.idioma=='E') ? 'Ocurrio un error':'Error',
+                  buttons: ["OK"]
+
+              }).present();
+                reject(error);
+            }
+        );
+    });
+    /**  this.http.get(url).subscribe(res =>{
       console.log(res);
       loader.dismiss();
        if(res.json()['ERROR']){
@@ -53,7 +74,7 @@ export class AlbumProvider {
          this.albumes.push(...res.json()['ALBUMS']);
 
        }
-     });
+     });**/
 
 
 
@@ -66,8 +87,40 @@ export class AlbumProvider {
            content: (this.ajustes.ajustes.idioma=='E') ? 'Espere por favor':'Loading',
      });
     loader.present();
-      console.log("Aqui voy antes del get");
-      this.http.get(url).subscribe(res =>{
+
+
+    return new Promise( (resolve, reject) => {
+        this.http.get(url).map(res=>res.json())
+        .subscribe(
+            data => {
+              loader.dismiss();
+              this.albumesCantidad.splice(0,this.albumesCantidad.length);
+              this.albumesCantidad.push(...data['ALBUMS']);
+              resolve(data)
+            },
+            error => {
+              this.alertCtl.create({
+                  title: "Error",
+                  subTitle: (this.ajustes.ajustes.idioma=='E') ? 'Ocurrio un error':'Error',
+                  buttons: ["OK"]
+
+              }).present();
+              reject(error);
+            }
+        );
+    }).catch(error => {
+      loader.dismiss();
+      //this.navCtrl.pop();
+      this.alertCtl.create({
+          title: "Error",
+          subTitle: (this.ajustes.ajustes.idioma=='E') ? 'No tiene láminas repetidas':' You don´t have repeated Stickers',
+          buttons: ["OK"]
+
+      }).present();
+
+    });
+
+    /**  this.http.get(url).subscribe(res =>{
       console.log("RESPUESTa");
        console.log(res);
        loader.dismiss();
@@ -79,7 +132,7 @@ export class AlbumProvider {
          console.log("Albumes from "+rangoInicial+" "+rangoFinal);
          console.log(this.albumesCantidad);
        }
-     });
+     });**/
 
 
   }
