@@ -27,32 +27,32 @@
 
   <div *ngFor="let album of _albumes.albumesCantidad">
     <div *ngFor="let seccion of album.seccion">
-
-      <ion-card color="aguaMarina">
-      <ion-card-header>
-            <ion-label style="text-align:center" color="azulOscuro" *ngIf="_ajustes.ajustes.idioma=='E'">
-              {{seccion.nombreSeccion}}
-            </ion-label>
-            <ion-label style="text-align:center" color="azulOscuro"  *ngIf="_ajustes.ajustes.idioma=='I'">
-              {{seccion.nombreSeleccionIngles}}
-            </ion-label>
-      </ion-card-header>
-      </ion-card>
+    <ion-card color="aguaMarina">
+    <ion-card-header>
+          <ion-label style="text-align:center" color="azulOscuro" *ngIf="_ajustes.ajustes.idioma=='E'">
+            {{seccion.nombreSeccion}}
+          </ion-label>
+          <ion-label style="text-align:center" color="azulOscuro"  *ngIf="_ajustes.ajustes.idioma=='I'">
+            {{seccion.nombreSeleccionIngles}}
+          </ion-label>
+    </ion-card-header>
+    </ion-card>
     <ion-grid>
-
-      <ion-col col-4 *ngFor="let item of seccion.tickets">
-        <ion-card>
-        <ion-checkbox class = "profilecheck" (ionChange)= "anadirAlista(item)"></ion-checkbox>
-        <ion-badge *ngIf="item.cantidad >= 2" color="danger" class="profilebutton">{{item.cantidad}}</ion-badge>
-        <ion-avatar item-start>
-          <img *ngIf="item.cantidad == 0" [src]="seccion.imagenSeccion | imagen:'IcoGris'" >
-          <img *ngIf="item.cantidad >= 1" [src]="seccion.imagenSeccion | imagen:''" >
-        </ion-avatar>
-        <div class="card-title">{{item.numeroTicket}}</div>
-        <div *ngIf="_ajustes.ajustes.idioma=='E'" class="card-subtitle">{{item.nombreTicket}}</div>
-        <div *ngIf="_ajustes.ajustes.idioma=='I'" class="card-subtitle">{{item.nombreTicketIngles}}</div>
-        </ion-card>
-      </ion-col>
+      <ion-row>
+        <ion-col col-4 *ngFor="let item of seccion.tickets">
+          <ion-card>
+          <ion-checkbox class = "profilecheck" (ionChange)= "anadirAlista(item)"></ion-checkbox>
+          <ion-badge *ngIf="item.cantidad >= 2" color="danger" class="profilebutton">{{item.cantidad}}</ion-badge>
+          <ion-avatar item-start>
+            <img *ngIf="item.cantidad == 0" [src]="seccion.imagenSeccion | imagen:'IcoGris'" >
+            <img *ngIf="item.cantidad >= 1" [src]="seccion.imagenSeccion | imagen:''" >
+          </ion-avatar>
+          <div class="card-title">{{item.numeroTicket}}</div>
+          <div *ngIf="_ajustes.ajustes.idioma=='E'" class="card-subtitle">{{item.nombreTicket}}</div>
+          <div *ngIf="_ajustes.ajustes.idioma=='I'" class="card-subtitle">{{item.nombreTicketIngles}}</div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
 
     </ion-grid>
 
@@ -61,14 +61,14 @@
 
 
 
-  <ion-fab right bottom *ngIf="_ajustes.ajustes.idioma=='I'">
+  <ion-fab right bottom *ngIf="_ajustes.ajustes.idioma=='E'">
     <button ion-fab color="rojo"><ion-icon name="contacts"></ion-icon></button>
     <ion-fab-list side="left">
       <button ion-fab (click)="navegarIntercambio()" color="azulOscuro"><ion-icon name="repeat"></ion-icon></button>
       <ion-label class="tipoLetra">{{mensajesPagina.solicitarIntercambio}}</ion-label>
     </ion-fab-list>
   </ion-fab>
-  <ion-fab right bottom *ngIf="_ajustes.ajustes.idioma=='E'">
+  <ion-fab right bottom *ngIf="_ajustes.ajustes.idioma=='I'">
     <button ion-fab color="rojo"><ion-icon name="contacts"></ion-icon></button>
     <ion-fab-list side="left">
       <button ion-fab (click)="navegarIntercambio()" color="azulOscuro"><ion-icon name="repeat"></ion-icon></button>

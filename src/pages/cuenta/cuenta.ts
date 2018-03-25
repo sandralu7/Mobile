@@ -29,6 +29,8 @@ export class CuentaPage {
               private _usuario: UsuarioProvider, public _ajustes: AjustesProvider) {
               console.log("USUARIO PROVIDER desde cueta");
               console.log(this._usuario.usuario);
+              console.log("IDIOMA LOCO:")
+              console.log(this._ajustes.ajustes.idioma);
               this.mensajesGenerales = MSJ_GENERALES;
               this.mensajesPagina = MSJ_CUENTA;
   }

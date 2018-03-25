@@ -38,13 +38,11 @@
     <ion-card-header *ngIf="_ajustes.ajustes.idioma=='I'">
     {{mensajesPagina.informacionPersonalIng}}
     </ion-card-header>
-    <ion-item>
-      <ion-icon name="contact" color="primary" item-start large></ion-icon>
-        <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.nombre}}: </h2>
-        <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.nombreIng}}: </h2>
-        <p *ngIf="_ajustes.ajustes.idioma=='I'">{{_usuario.usuario.nombreUsuario}}, member since: {{_usuario.usuario.fechaCreacionUsuario}}</p>
-        <p *ngIf="_ajustes.ajustes.idioma=='E'">{{_usuario.usuario.nombreUsuario}}, miembro desde: {{_usuario.usuario.fechaCreacionUsuario}}</p>
-
+      <ion-item>
+        <ion-icon name="contact" color="primary" item-start large></ion-icon>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='E'" color="dark">{{mensajesPagina.nombre}}: </h2>
+        <h2 *ngIf="_ajustes.ajustes.idioma=='I'" color="dark">{{mensajesPagina.nombreIng}}: </h2>
+        <p>{{_usuario.usuario.nombreUsuario}}</p>
     </ion-item>
     <ion-item>
       <ion-icon name="mail" color="rojo" item-start large></ion-icon>
@@ -59,24 +57,19 @@
     </ion-item>
     <ion-item>
       <ion-icon name="football" item-start large></ion-icon>
-        <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasRegistradas}}: </h2>
-        <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasRegistradasIng}}: </h2>
-
-        <p>{{_usuario.usuario.laminasRegistradas}}/682</p>
+        <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasRegistradas}}: {{_usuario.usuario.laminasRegistradas}} de 670</p>
+        <p *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasRegistradasIng}}: {{_usuario.usuario.laminasRegistradas}} of 670</p>
     </ion-item>
     <ion-item>
       <ion-icon name="sad" color="naranja" item-start large></ion-icon>
-        <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasFaltantes}}: </h2>
-        <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasFaltantesIng}}: </h2>
-
-        <p>{{_usuario.usuario.laminasFaltantes}}/682</p>
+        <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasFaltantes}}: {{_usuario.usuario.laminasFaltantes}} de 670</p>
+        <p *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasFaltantesIng}}: {{_usuario.usuario.laminasFaltantes}} of 670</p>
     </ion-item>
     <ion-item>
       <ion-icon name="images" color="secondary" item-start large></ion-icon>
-        <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasRepetidas}}: </h2>
-        <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasRepetidasIng}}: </h2>
+        <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.laminasRepetidas}}: {{_usuario.usuario.laminasRepetidas}}</p>
+        <p *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.laminasRepetidasIng}}: {{_usuario.usuario.laminasRepetidas}}</p>
 
-        <p>{{_usuario.usuario.laminasRepetidas}}</p>
     </ion-item>
 
   </ion-card>
