@@ -51,6 +51,8 @@ export class AjustesProvider {
               if(ajustes){
                 this.ajustes=ajustes;
               }
+              console.log("COrrep stotage: "+this.ajustes.correo_usuario);
+
               resolve();
 
             });

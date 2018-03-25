@@ -31,6 +31,11 @@ export class LoginPage {
       this.mensajesPagina = MSJ_LOGIN;
       this.mensajesGenerales = MSJ_GENERALES;
       this.mensajesRegistro= MSJ_REGISTRO;
+      console.log("Entro login constructor");
+      console.log(this._ajustes.ajustes);
+      console.log("Correo Stotage constructor: "+this._ajustes.ajustes.correo_usuario);
+      this.correo=this._ajustes.ajustes.correo_usuario;
+      this.contrasena=this._ajustes.ajustes.clave_usuario;
   }
 
   navegarPaginaAlbumes(){
@@ -40,6 +45,7 @@ export class LoginPage {
   ionViewWillEnter(){
     console.log("Entro login");
     console.log(this._ajustes.ajustes);
+    console.log("Correo Stotage: "+this._ajustes.ajustes.correo_usuario);
     this.correo=this._ajustes.ajustes.correo_usuario;
     this.contrasena=this._ajustes.ajustes.clave_usuario;
   }

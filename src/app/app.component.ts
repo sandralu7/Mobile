@@ -35,9 +35,9 @@ export class MyApp {
     platform.ready().then(() => {
       this._ajustes.cargar_storage()
      .then( ()=>{
-
           //  if(this._ajustes.ajustes.mostrar_login){
-
+          console.log("cargando storage");
+          console.log("Prueba Correo en carga de storage: "+this._ajustes.ajustes.correo_usuario)
               this.rootPage = LoginPage;
           /*  }else{
               if(this._ajustes.ajustes.estado_usuario==0){
@@ -51,10 +51,14 @@ export class MyApp {
 
         // Okay, so the platform is ready and our plugins are available.
         // Here you can do any higher level native things you might need.
-        statusBar.styleDefault();
-        splashScreen.hide();
-      })
+
+      }).then( ()=>{})
     });
+    statusBar.styleDefault();
+    splashScreen.hide();
+    console.log("termino carga storage jgr");
+    console.log(this._ajustes.ajustes.correo_usuario);
+
   }
 
   openPage(nombrePagina:string, pagina:any){
