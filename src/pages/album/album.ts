@@ -45,8 +45,8 @@ export class AlbumPage {
       this._ajustes.ajustes.idioma=null;
       this._ajustes.ajustes.mostrar_configuracion=true;
       // Guarda en el storage la info
-      this._ajustes.guardar_storage();
-      this._ajustes.eliminar_storage();
+    //  this._ajustes.guardar_storage();
+    //  this._ajustes.eliminar_storage();
       // Establece como Root de la pagina inicial
 
       this.navCtrl.setRoot(LoginPage);

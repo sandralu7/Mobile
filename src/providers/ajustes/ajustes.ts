@@ -30,6 +30,7 @@ export class AjustesProvider {
   }
 
 // Carga lo guardado en el storage
+/*
   cargar_storage(){
 
     let promesa=new Promise((resolve, reject) => {
@@ -46,14 +47,9 @@ export class AjustesProvider {
               if(ajustes){
                 this.ajustes=ajustes;
               }
-
               resolve();
 
             });
-
-
-
-
         })
 
       }else{
@@ -78,6 +74,7 @@ export class AjustesProvider {
 /*
 Guarda el storage del dispositivo
 */
+/*
   guardar_storage(){
   if( this.platform.is("cordova")){
     // Dispositivo
@@ -97,6 +94,7 @@ Guarda el storage del dispositivo
 /*
 Eliminar el storage del dispositivo
 */
+/*
   eliminar_storage(){
   if( this.platform.is("cordova")){
     // Dispositivo
@@ -111,6 +109,6 @@ Eliminar el storage del dispositivo
     // Escritorio
     localStorage.removeItem("ajustes");
   }
-}
+}*/
 
 }

@@ -119,7 +119,7 @@ export class ConfimarUsuarioPage {
                     // Guadra la informacion retornada
                     this._ajustes.ajustes.estado_usuario=1;
                     // Guarda en el storage la info
-                    this._ajustes.guardar_storage();
+                  //  this._ajustes.guardar_storage();
                     // Hace root la paginainicial
                   //  this.navCtrl.setRoot(MenuInicialPage);
                       this.navCtrl.setRoot(AlbumPage);

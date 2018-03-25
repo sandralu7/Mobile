@@ -38,6 +38,10 @@ export class LoginPage {
   }
 
   navegarPaginaRegistro(){
+    if (this._ajustes.ajustes.idioma==''){
+             this._ajustes.ajustes.idioma='I';
+    }
+
     this.navCtrl.push(RegistroPage);
   }
 
@@ -90,7 +94,7 @@ export class LoginPage {
 
   saltarLogin(){
     this._ajustes.ajustes.mostrar_login=false;
-    this._ajustes.guardar_storage();
+    //this._ajustes.guardar_storage();
   }
 
   ingresar(){
@@ -130,8 +134,8 @@ export class LoginPage {
                     this._ajustes.ajustes.estado_usuario=null
                     this._ajustes.ajustes.idioma=null;
                     // Guarda en el storage la info
-                    this._ajustes.guardar_storage();
-                    this._ajustes.eliminar_storage();
+                //    this._ajustes.guardar_storage();
+                //    this._ajustes.eliminar_storage();
 
 
                     // Crea una alerta informando el error
@@ -149,7 +153,7 @@ export class LoginPage {
                     this._ajustes.ajustes.estado_usuario=data_resp.estado_usuario;
 
                     // Guarda en el storage la info
-                    this._ajustes.guardar_storage();
+                  //  this._ajustes.guardar_storage();
                     // Hace root la paginainicial
                   //  this.navCtrl.setRoot(MenuInicialPage);
 

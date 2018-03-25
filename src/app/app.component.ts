@@ -3,7 +3,7 @@ import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { LoginPage, AlbumPage, FichasFaltantesPage, SolicitudesEntrantesPage, SolicitudesSalientesPage, ConfimarUsuarioPage,OlvidoContraseniaPage } from "../pages/index.paginas";
+import { LoginPage, AlbumPage, FichasFaltantesPage, SolicitudesEntrantesPage, SolicitudesSalientesPage, ConfimarUsuarioPage,OlvidoContraseniaPage, CambiarContraseniaPage } from "../pages/index.paginas";
 
 //Providers
 import {  AjustesProvider } from "../providers/ajustes/ajustes";
@@ -23,6 +23,7 @@ export class MyApp {
   intercambios = FichasFaltantesPage;
   solicitudesEntrantes =  SolicitudesEntrantesPage;
   solicitudesSalientes = SolicitudesSalientesPage;
+  cambiarContraseniaPage = CambiarContraseniaPage;
   mensajesGenerales: any;
 
   rootPage:any = LoginPage;
@@ -32,18 +33,18 @@ export class MyApp {
               public alertCtl:AlertController) {
     this.mensajesGenerales = MSJ_GENERALES;
     platform.ready().then(() => {
-      this._ajustes.cargar_storage()
-      .then( ()=>{
+    //  this._ajustes.cargar_storage()
+  //    .then( ()=>{
 
-            if(this._ajustes.ajustes.mostrar_login){
+          //  if(this._ajustes.ajustes.mostrar_login){
               this.rootPage = LoginPage;
-            }else{
+          /*  }else{
               if(this._ajustes.ajustes.estado_usuario==0){
                  this.rootPage = ConfimarUsuarioPage;
               }else{
                 this.rootPage = AlbumPage ;
               }
-            }
+            }*/
 
 
 
@@ -51,7 +52,7 @@ export class MyApp {
         // Here you can do any higher level native things you might need.
         statusBar.styleDefault();
         splashScreen.hide();
-      })
+    //  })
     });
   }
 
@@ -73,6 +74,7 @@ export class MyApp {
         }
     }
     else{
+
       this.rootPage = pagina;
       this.menuCtrl.close();
     }
@@ -87,13 +89,14 @@ export class MyApp {
     this._ajustes.ajustes.idioma=null;
     this._ajustes.ajustes.mostrar_configuracion=true;
     // Guarda en el storage la info
-    this._ajustes.guardar_storage();
-    this._ajustes.eliminar_storage();
+    //this._ajustes.guardar_storage();
+    //this._ajustes.eliminar_storage();
     // Establece como Root de la pagina inicial
 
   //  this.navCtrl.setRoot(LoginPage);
 
     console.log('sali cerrar sesion 1');
+    this.rootPage = this.album;
     this.rootPage = LoginPage;
     console.log('sali cerrar sesion');
     this.menuCtrl.close();

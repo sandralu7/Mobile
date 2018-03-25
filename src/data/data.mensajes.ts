@@ -138,7 +138,7 @@ export const MSJ_CORREO ={
       cuerpo2Ing: ", in order to validate your identity.",
       despedida:"Muchas Gracias",
       despedidaIng: "Thank you so much.",
-      msgUsuarioCreadoCorrectamente: "Usuario creado correctamente, por favor ingrese a su email y confirme el codigo de verificación",
+      msgUsuarioCreadoCorrectamente: "Usuario creado correctamente, por favor ingrese a su email y confirme el código de verificación",
       msgUsuarioCreadoCorrectamenteIng: "User created correctly, please enter your email and confirm the verification code"
 }
 export const MSJ_VERIFICACION ={

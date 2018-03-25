@@ -191,10 +191,9 @@ export class RegistroPage {
 
     // Se crea un loadiog con el fin de que verifique el usuario
     let loader = this.loadingCtrl.create({
-           content: "Espere por favor",
+           content: "Wait / Espere por favor",
      });
     loader.present();
-
 
 
     // Realiza la peticion por medio de una promesa

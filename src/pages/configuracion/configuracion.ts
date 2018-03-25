@@ -56,7 +56,7 @@ export class ConfiguracionPage {
     this._ajustes.ajustes.mostrar_configuracion=false;
     this._ajustes.ajustes.idioma=this.idioma;
       // Guarda en el storage la info
-    this._ajustes.guardar_storage();
+  //  this._ajustes.guardar_storage();
     // Hace root la paginainicial
   //  this.navCtrl.setRoot(MenuInicialPage);
     this.navCtrl.setRoot(LoginPage);
