@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { AlbumPage, RegistroPage,ConfimarUsuarioPage } from "../index.paginas";
+import { AlbumPage, RegistroPage,ConfimarUsuarioPage, OlvidoContraseniaPage } from "../index.paginas";
 import { Http, URLSearchParams} from '@angular/http';
 import { URL_SERVICIOS} from "../../config/url.servicios";
 
@@ -95,6 +95,12 @@ export class LoginPage {
   saltarLogin(){
     this._ajustes.ajustes.mostrar_login=false;
     //this._ajustes.guardar_storage();
+  }
+
+  olvidoContrasenia(){
+
+    this.navCtrl.push(OlvidoContraseniaPage);
+
   }
 
   ingresar(){
