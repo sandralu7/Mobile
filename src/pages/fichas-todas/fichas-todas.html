@@ -36,9 +36,9 @@
           <img *ngIf="item.cantidad == 0" [src]="seccion.imagenSeccion | imagen:'IcoGris'" >
           <img *ngIf="item.cantidad >= 1" [src]="seccion.imagenSeccion | imagen:''" >
         </ion-avatar>
-        <div class="card-title">{{item.numeroTicket}}</div>
-        <div *ngIf="_ajustes.ajustes.idioma=='E'" class="card-subtitle">{{item.nombreTicket}}</div>
-        <div *ngIf="_ajustes.ajustes.idioma=='I'" class="card-subtitle">{{item.nombreTicketIngles}}</div>
+        <div class="card-title sombra">{{item.numeroTicket}}</div>
+        <div *ngIf="_ajustes.ajustes.idioma=='E'" class="card-subtitle sombra">{{item.nombreTicket}}</div>
+        <div *ngIf="_ajustes.ajustes.idioma=='I'" class="card-subtitle sombra">{{item.nombreTicketIngles}}</div>
 
         </ion-card>
       </ion-col>
