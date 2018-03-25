@@ -26,7 +26,7 @@ export class MyApp {
   cambiarContraseniaPage = CambiarContraseniaPage;
   mensajesGenerales: any;
 
-  rootPage:any = LoginPage;
+  rootPage:any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               private menuCtrl: MenuController, private _ajustes:AjustesProvider,
