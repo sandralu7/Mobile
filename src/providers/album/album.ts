@@ -99,12 +99,7 @@ export class AlbumProvider {
               resolve(data)
             },
             error => {
-              this.alertCtl.create({
-                  title: "Error",
-                  subTitle: (this.ajustes.ajustes.idioma=='E') ? 'Ocurrio un error':'Error',
-                  buttons: ["OK"]
-
-              }).present();
+            
               reject(error);
             }
         );
