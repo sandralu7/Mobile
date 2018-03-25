@@ -37,6 +37,13 @@ export class LoginPage {
     this.navCtrl.push(AlbumPage);
   }
 
+  ionViewWillEnter(){
+    console.log("Entro login");
+    console.log(this._ajustes.ajustes);
+    this.correo=this._ajustes.ajustes.correo_usuario;
+    this.contrasena=this._ajustes.ajustes.clave_usuario;
+  }
+
   navegarPaginaRegistro(){
     if (this._ajustes.ajustes.idioma==''){
              this._ajustes.ajustes.idioma='I';
@@ -139,6 +146,7 @@ export class LoginPage {
                     this._ajustes.ajustes.token=null;
                     this._ajustes.ajustes.estado_usuario=null
                     this._ajustes.ajustes.idioma=null;
+
                     // Guarda en el storage la info
                 //    this._ajustes.guardar_storage();
                 //    this._ajustes.eliminar_storage();
@@ -157,9 +165,11 @@ export class LoginPage {
                     this._ajustes.ajustes.idioma=data_resp.lenguaje;
                     this._ajustes.ajustes.token=data_resp.token;
                     this._ajustes.ajustes.estado_usuario=data_resp.estado_usuario;
+                    this._ajustes.ajustes.correo_usuario=this.correo;
+                    this._ajustes.ajustes.clave_usuario=this.contrasena;
 
                     // Guarda en el storage la info
-                  //  this._ajustes.guardar_storage();
+                    this._ajustes.guardar_storage();
                     // Hace root la paginainicial
                   //  this.navCtrl.setRoot(MenuInicialPage);
 

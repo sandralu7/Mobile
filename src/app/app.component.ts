@@ -33,10 +33,11 @@ export class MyApp {
               public alertCtl:AlertController) {
     this.mensajesGenerales = MSJ_GENERALES;
     platform.ready().then(() => {
-    //  this._ajustes.cargar_storage()
-  //    .then( ()=>{
+      this._ajustes.cargar_storage()
+     .then( ()=>{
 
           //  if(this._ajustes.ajustes.mostrar_login){
+
               this.rootPage = LoginPage;
           /*  }else{
               if(this._ajustes.ajustes.estado_usuario==0){
@@ -52,7 +53,7 @@ export class MyApp {
         // Here you can do any higher level native things you might need.
         statusBar.styleDefault();
         splashScreen.hide();
-    //  })
+      })
     });
   }
 

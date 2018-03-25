@@ -128,12 +128,12 @@ export const MSJ_REGISTRO ={
 }
 
 export const MSJ_CORREO ={
-      titulo: "Buenas ",
+      titulo: "Hola ",
       tituloIng: "Hi ",
       asunto:"Validación Identidad PaniniExchange",
       asuntoIng: "Validation Identity PaniniExchange",
-      cuerpo1:"Por favor ingresa con las contraseña registrada y  en seguida registra el código",
-      cuerpo1Ing: "Please enter with the registered password and then register the code",
+      cuerpo1:"Por favor ingresa con el email y  contraseña registrados, a continuación registra el código de verificacion",
+      cuerpo1Ing: "Please enter with the registered password and then register the verification code",
       cuerpo2:", con el fin de validar tu identidad.",
       cuerpo2Ing: ", in order to validate your identity.",
       despedida:"Muchas Gracias",

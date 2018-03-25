@@ -32,12 +32,12 @@
         <img [src]="item.imagenAlbum | imagen:''" (click)="navegarPaginaSecciones(item)">
         <ion-card-content>
           <ion-card-title  *ngIf="_ajustes.ajustes.idioma=='E'">
-             {{item.nombreAlbum}}
+             {{item.nombreAlbum}} - ENTRY
           </ion-card-title>
           <ion-card-title  *ngIf="_ajustes.ajustes.idioma=='I'">
-             {{item.nombreAlbum}}
+             {{item.nombreAlbum}} - INGRESA
           </ion-card-title>
-          
+
           </ion-card-content>
         </ion-card>
 

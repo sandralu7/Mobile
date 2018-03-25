@@ -19,7 +19,9 @@ export class AjustesProvider {
     token:"",
     idioma:"",
     mostrar_configuracion:true,
-    estado_usuario:0
+    estado_usuario:0,
+    correo_usuario:"",
+    clave_usuario:""
   };
 
   banderaAppFree=true;
@@ -29,8 +31,10 @@ export class AjustesProvider {
     console.log('Hello AjustesProvider Provider');
   }
 
+
+
 // Carga lo guardado en el storage
-/*
+
   cargar_storage(){
 
     let promesa=new Promise((resolve, reject) => {
@@ -74,7 +78,7 @@ export class AjustesProvider {
 /*
 Guarda el storage del dispositivo
 */
-/*
+
   guardar_storage(){
   if( this.platform.is("cordova")){
     // Dispositivo
@@ -94,7 +98,7 @@ Guarda el storage del dispositivo
 /*
 Eliminar el storage del dispositivo
 */
-/*
+
   eliminar_storage(){
   if( this.platform.is("cordova")){
     // Dispositivo
@@ -109,6 +113,6 @@ Eliminar el storage del dispositivo
     // Escritorio
     localStorage.removeItem("ajustes");
   }
-}*/
+}
 
 }
