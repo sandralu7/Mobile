@@ -53,7 +53,7 @@ export const MSJ_CUENTA =
 }
 
 export const MSJ_FALTANTES ={
-      titulo: "Fichas Faltantes",
+      titulo: "Láminas Faltantes",
       tituloIng: "Missing stickers",
       solicitarIntercambio: "Solicitar Intercambio",
       solicitarIntercambioIng: "Request Exchange"
@@ -61,7 +61,7 @@ export const MSJ_FALTANTES ={
 }
 
 export const MSJ_REPETIDAS ={
-      titulo: "Fichas Repetidas",
+      titulo: "Láminas Repetidas",
       tituloIng: "Duplicated stickers",
       solicitarIntercambio: "Solicitar Intercambio",
       solicitarIntercambioIng: "Request Exchange"
@@ -138,12 +138,12 @@ export const MSJ_CORREO ={
       cuerpo2Ing: ", in order to validate your identity.",
       despedida:"Muchas Gracias",
       despedidaIng: "Thank you so much.",
-      msgUsuarioCreadoCorrectamente: "Usuario creado correctamente, por favor ingrese a su email y confirme el código de verificación",
-      msgUsuarioCreadoCorrectamenteIng: "User created correctly, please enter your email and confirm the verification code"
+      msgUsuarioCreadoCorrectamente: "Usuario creado correctamente, por favor ingrese a su email y confirme el código de verificación. Por favor Revise los correos enviados a SPAM!",
+      msgUsuarioCreadoCorrectamenteIng: "User created correctly, please enter your email and confirm the verification code. Please please check your SPAM emails!"
 }
 export const MSJ_VERIFICACION ={
-      mensaje: "Por favor ingresa el código de verificación que fue enviado a su correo electrónico. ",
-      mensajeIng: "Please enter the verification code that was sent to your email.",
+      mensaje: "Por favor ingresa el código de verificación que fue enviado a su correo electrónico. Revise su correo Spam",
+      mensajeIng: "Please enter the verification code that was sent to your email. Check your spam email.",
       ingreseCodigo: "Ingrese código",
       ingreseCodigoIng: "Enter code",
       codigoError: "Código de verificación no coincide con el enviado",

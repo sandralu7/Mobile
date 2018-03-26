@@ -24,7 +24,7 @@ export class AjustesProvider {
     clave_usuario:""
   };
 
-  banderaAppFree=true;
+  banderaAppFree=false;
 
   constructor(private platform : Platform,
               private storage : Storage) {

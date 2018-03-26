@@ -99,12 +99,13 @@ export class AlbumProvider {
               resolve(data)
             },
             error => {
-            
+
               reject(error);
             }
         );
     }).catch(error => {
       loader.dismiss();
+      this.albumesCantidad.splice(0,this.albumesCantidad.length);
       //this.navCtrl.pop();
       this.alertCtl.create({
           title: "Error",
