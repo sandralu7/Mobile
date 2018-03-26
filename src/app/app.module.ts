@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import { Geolocation } from '@ionic-native/geolocation';
+
 //Pipe
 import {ImagenPipe} from "../pipes/imagen/imagen";
 
@@ -83,6 +85,7 @@ import { AjustesProvider } from '../providers/ajustes/ajustes';
     SplashScreen,
     HttpModule,
     HttpClient,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AlbumProvider,
     UsuarioProvider,

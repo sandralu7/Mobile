@@ -5,6 +5,8 @@ import { AlbumPage, RegistroPage,ConfimarUsuarioPage, OlvidoContraseniaPage } fr
 import { Http, URLSearchParams} from '@angular/http';
 import { URL_SERVICIOS} from "../../config/url.servicios";
 
+import { Geolocation } from '@ionic-native/geolocation';
+
 //providers
 import { AjustesProvider } from "../../providers/ajustes/ajustes";
 import { LoadingController, AlertController} from 'ionic-angular';
@@ -23,11 +25,13 @@ export class LoginPage {
   mensajesPagina: any;
   mensajesGenerales: any;
   mensajesRegistro: any;
+  longitud:any;
+  latitud:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private _ajustes: AjustesProvider,
     public loadingCtrl: LoadingController,
     public http : Http,
-    private alertController:AlertController) {
+    private alertController:AlertController, private geolocation: Geolocation) {
       this.mensajesPagina = MSJ_LOGIN;
       this.mensajesGenerales = MSJ_GENERALES;
       this.mensajesRegistro= MSJ_REGISTRO;
@@ -36,6 +40,7 @@ export class LoginPage {
       console.log("Correo Stotage constructor: "+this._ajustes.ajustes.correo_usuario);
       this.correo=this._ajustes.ajustes.correo_usuario;
       this.contrasena=this._ajustes.ajustes.clave_usuario;
+      this.obtenerCoordenadas();
   }
 
   navegarPaginaAlbumes(){
@@ -56,6 +61,18 @@ export class LoginPage {
     }
 
     this.navCtrl.push(RegistroPage);
+  }
+  obtenerCoordenadas(){
+    console.log('Antes de obtener');
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.longitud= resp.coords.longitude;
+      this.latitud= resp.coords.latitude;
+      console.log('despues de obtener: '+ this.longitud+" ,"+ this.latitud);
+     }).catch((error) => {
+       this.longitud=null;
+       this.latitud=null;
+       console.log('Error getting location', error);
+     });
   }
 
   loginUsuario(){
@@ -121,7 +138,10 @@ export class LoginPage {
     let data=new URLSearchParams();
     data.append("USUA_CORREO", this.correo);
     data.append("USUA_CLAVE", this.contrasena);
-
+    if(this._ajustes.banderaAppFree==false){
+      data.append("USUA_LATITUD", this.latitud);
+      data.append("USUA_LONGITUD", this.longitud);
+    }
     let url = URL_SERVICIOS + "/usuario/login_usuario_geo/";
 
     // Se crea un loadiog con el fin de que verifique el usuario
