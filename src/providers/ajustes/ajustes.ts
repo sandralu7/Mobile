@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import {Platform} from 'ionic-angular';
+import { Tickets } from "../../interfaces/tickets.interface";
 
 /*
   Generated class for the AjustesProvider provider.
@@ -25,6 +26,7 @@ export class AjustesProvider {
   };
 
   banderaAppFree=false;
+  ticketsSeleccionados: Tickets[] =[];
 
   constructor(private platform : Platform,
               private storage : Storage) {

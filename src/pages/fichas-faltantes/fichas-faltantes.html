@@ -22,8 +22,11 @@
 </ion-header>
 
 
-<ion-content class="card-background-page">
-
+<ion-content class="card-background-page fondo2">
+  <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.mensajeTitulo}}</h2>
+  <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.mensajeTituloIng}}</h2>
+  <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.mensajeTituloParrafo}}</p>
+  <p *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.mensajeTituloParrafoIng}}</p>
   <div *ngFor="let album of _albumes.albumesCantidad">
     <div *ngFor="let seccion of album.seccion">
     <ion-card color="aguaMarina">
@@ -72,7 +75,7 @@
     <button ion-fab color="rojo"><ion-icon name="contacts"></ion-icon></button>
     <ion-fab-list side="left">
       <button ion-fab (click)="navegarIntercambio()" color="azulOscuro"><ion-icon name="repeat"></ion-icon></button>
-      <ion-label class="tipoLetra">{{mensajesPagina.solicitarIntercambioIng}}</ion-label>
+      <ion-label class="tipoLetra2">{{mensajesPagina.solicitarIntercambioIng}}</ion-label>
     </ion-fab-list>
   </ion-fab>
 </ion-content>

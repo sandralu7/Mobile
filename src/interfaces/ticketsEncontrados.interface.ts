@@ -4,7 +4,5 @@ export interface TicketsEncontrados{
   nombreTicket: string;
   nombreTicketIngles: string;
   numeroTicket:number;
-  
-
-
+  numeroSeccion:number;
 }

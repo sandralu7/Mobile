@@ -56,7 +56,11 @@ export const MSJ_FALTANTES ={
       titulo: "Láminas Faltantes",
       tituloIng: "Missing stickers",
       solicitarIntercambio: "Solicitar Intercambio",
-      solicitarIntercambioIng: "Request Exchange"
+      solicitarIntercambioIng: "Request Exchange",
+      mensajeTitulo: "Busca tus láminas faltantes",
+      mensajeTituloIng: "Search your missing stickers",
+      mensajeTituloParrafo: "Selecciona maximo 3 láminas que te hagan falta y busca personas cercanas que la tengan",
+      mensajeTituloParrafoIng: "Select maximum 3 stickers that you need and look for close people who have it"
 
 }
 
@@ -64,7 +68,12 @@ export const MSJ_REPETIDAS ={
       titulo: "Láminas Repetidas",
       tituloIng: "Duplicated stickers",
       solicitarIntercambio: "Solicitar Intercambio",
-      solicitarIntercambioIng: "Request Exchange"
+      solicitarIntercambioIng: "Offer Stickers",
+      mensajeTitulo: "Ofrece tus láminas repetidas",
+      mensajeTituloIng: "Offer your duplicated stickers",
+      mensajeTituloParrafo: "Selecciona maximo 3 láminas repetidas y busca personas cercanas que no la tengan",
+      mensajeTituloParrafoIng: "Select maximum 3 stickers duplicated and look for close people who have not it"
+
 }
 
 export const MSJ_TODAS ={
@@ -102,8 +111,10 @@ export const MSJ_REGISTRO ={
       tituloIng: "Sign in Users",
       nombre:"Nombre",
       nombreIng: "Full Name",
-      celular:"Celular",
-      celularIng: "Phone Number",
+      celular:"Número WhatsApp ",
+      celularIng: "WhatsApp Number (Ej: +57300889900)",
+      celularMensaje:"(Por favor, ingrese el código de su país) Ejemplo: (tel: +57300889900)",
+      celularMensajeIng:"(Please, enter your county code) Example: (tel: +57300889900)",
       password:"Contraseña",
       passwordIng: "Password",
       passwordRepeat: "Repita su contraseña",
@@ -112,8 +123,8 @@ export const MSJ_REGISTRO ={
       ingreseNombreIng: "Enter your full name",
       ingreseEmail: "Ingrese email",
       ingreseEmailIng: "Enter your Email",
-      ingreseCelular: "Ingrese celular",
-      ingreseCelularIng: "Enter your phone number",
+      ingreseCelular: "Ingrese celular. Ejemplo: (tel: +57300889900)",
+      ingreseCelularIng: "Enter your phone number. Example: (tel: +57300889900)",
       ingreseContrasenia:"Ingrese contraseña",
       ingreseContraseniaIng: "Enter your password",
       ingreseConfirmacion:"Ingrese confirmación contraseña",
@@ -148,4 +159,32 @@ export const MSJ_VERIFICACION ={
       ingreseCodigoIng: "Enter code",
       codigoError: "Código de verificación no coincide con el enviado",
       codigoErrorIng: "Verification code does not match the one sent."
+}
+
+export const MSJ_INTERCAMBIO = {
+    titulo: "Intercambios",
+    tituloIng: "Exchanges",
+    mensajeTitulo: "Buscar Personas Cercanas",
+    mensajeTituloIng: "Search Nearby People",
+    mensajeParrafo: "Seleccione el rango de búsqueda en KILOMETROS y haga clic en el botón buscar.",
+    mensajeParrafoIng: "Select the search range in KILOMETERS and click on the search button.",
+    mensajeParrafo2: "Con esta opción podrá compartir información de contacto con otros usuarios.",
+    mensajeParrafo2Ing: "With this option you can share contact information with other users.",
+    boton: "Buscar",
+    botonIng: "Search"
+
+}
+
+export const MSJ_RESULTADOS = {
+  titulo: "Resultados de la búsqueda",
+  tituloIng: "Search results",
+  mensajeTitulo: "Personas Encontradas",
+  mensajeTituloIng: "People Found",
+  mensajeParrafo: "Seleccione la persona con la que quiere intercambiar fichas.",
+  mensajeParrafoIng: "Select the person with whom you want to exchange stickers.",
+  laminaNumero: "Lámina Número:",
+  laminaNumeroIng: "Sticker number:",
+  distancia: "Distancia (KM):",
+  distanciaIng: "Distance (KM):"
+
 }

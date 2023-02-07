@@ -13,3 +13,4 @@ export {HomePage} from "./home/home";
 export { OlvidoContraseniaPage } from "./olvido-contrasenia/olvido-contrasenia";
 export { ConfimarUsuarioPage } from "./confimar-usuario/confimar-usuario";
 export { CambiarContraseniaPage } from "./cambiar-contrasenia/cambiar-contrasenia";
+export {ResultadoBusquedaIntercambiosPage} from "./resultado-busqueda-intercambios/resultado-busqueda-intercambios";

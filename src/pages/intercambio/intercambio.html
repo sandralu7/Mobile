@@ -6,8 +6,9 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Intercambios</ion-title>
+  <ion-navbar color="naranja">
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.tituloIng}}</ion-title>
     <ion-buttons>
       <button ion-button
               icon-only
@@ -20,29 +21,34 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let item of _intercambios.usuarios"
-      (click)="irStickers(seccion)">
-      <ion-avatar item-start>
-        <img *ngIf="item.porcentajeLlenado==100" src="assets/banderas/trofeoIcon.png">
-        <img *ngIf="item.porcentajeLlenado>=80 && item.porcentajeLlenado<=99" src="assets/banderas/goldIcon.png">
-        <img *ngIf="item.porcentajeLlenado>=60 && item.porcentajeLlenado<=79" src="assets/banderas/silverIcon.png">
-        <img *ngIf="item.porcentajeLlenado>=0 && item.porcentajeLlenado<=59" src="assets/banderas/bronzeIcon.png">
-     </ion-avatar>
-     <h2>{{item.nombreUsuario}}</h2>
-     <div *ngFor="let ticket of item.tickets">
-     <h2>Lámina Número: {{ticket.numeroTicket}}</h2>
-     </div>
-     <button ion-button
-             color="danger"
-             outline
-             small>
-             Solicitar
-     </button>
-    </ion-item>
+<ion-content padding class="fondo2">
+  <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.mensajeTitulo}}</h2>
+  <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.mensajeTituloIng}}</h2>
+  <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.mensajeParrafo}}</p>
+  <p *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.mensajeParrafoIng}}</p>
+  <ion-item>
+    <ion-range min="0" max="200" [(ngModel)]="distancia" pin="true" color="secondary">
+      <ion-label range-left>0</ion-label>
+      <ion-label range-right>200</ion-label>
+    </ion-range>
+  </ion-item>
+  <button ion-button round
+    *ngIf="_ajustes.ajustes.idioma=='E'"
+      color="aguaMarina"
+      block
+      (click)="buscarCercanos()">
+  {{mensajesPagina.boton}}
+  </button>
+  <button ion-button round
+    *ngIf="_ajustes.ajustes.idioma=='I'"
+      color="aguaMarina"
+      block
+      (click)="buscarCercanos()">
+  {{mensajesPagina.botonIng}}
+  </button>
+  <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.mensajeParrafo2}}</p>
+  <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.mensajeParrafo2Ing}}</p>
 
-  </ion-list>
 
 
 

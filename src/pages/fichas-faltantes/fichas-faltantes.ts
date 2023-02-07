@@ -35,6 +35,7 @@ export class FichasFaltantesPage {
     this.mensajesPagina = MSJ_FALTANTES;
   }
   ionViewWillEnter(){
+    this.ticketsSeleccionados.splice(0,this.ticketsSeleccionados.length);
     this._albumes.cargar_todosPorCantidad(this.token,this.album.idAlbum,0,0);
   }
 
@@ -52,7 +53,20 @@ export class FichasFaltantesPage {
 
       }).present();
     }else{
-      this.navCtrl.push(IntercambioPage);
+      if(this.ticketsSeleccionados.length>0){
+        console.log("Desde repetidas");
+        console.log(this.ticketsSeleccionados);
+        this._ajustes.ticketsSeleccionados = this.ticketsSeleccionados;
+        this.navCtrl.push(IntercambioPage, {'proceso': 'faltantes'});
+      }
+      else{
+        this.alertCtl.create({
+            title: "Info",
+            subTitle: (this._ajustes.ajustes.idioma=='E') ? "Seleccione minímo 1 lámina.":"Select at least 1 sticker.",
+            buttons: ["OK"]
+
+        }).present();
+      }
     }
   }
 

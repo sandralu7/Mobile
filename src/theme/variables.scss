@@ -69,8 +69,20 @@ $app-direction: ltr;
 }
 
 .tipoLetra{
-  font-weight: azulOscuro;
+  font-weight: bold;
   font-size: 20px;
+  color: #E29415;
+
+
+
+}
+
+.tipoLetra2{
+  font-weight: bold;
+  font-size: 20px;
+  color: #202D78;
+
+
 
 }
 
@@ -108,10 +120,23 @@ position: relative ;
 border: none ;
 }
 
+.fondo2{
+background-image: url('https://firebasestorage.googleapis.com/v0/b/gag-db3ba.appspot.com/o/estadioRusia.jpg?alt=media&token=22c6aa82-4a1d-496f-ae38-642ebd5a8b54') ;
+background-repeat: no-repeat ;
+background-size: cover ;
+background-position: center ;
+width: 100% ;
+position: relative ;
+border: none ;
+}
+
   .sombra{
      text-shadow: 1px 2px #999;
   }
 
+  .ion-icon-large {
+          font-size: 40px; //Preferred size here
+      }
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.

@@ -23,8 +23,11 @@
 </ion-header>
 
 
-<ion-content class="card-background-page">
-
+<ion-content class="card-background-page fondo2">
+  <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.mensajeTitulo}}</h2>
+  <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.mensajeTituloIng}}</h2>
+  <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.mensajeTituloParrafo}}</p>
+  <p *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.mensajeTituloParrafoIng}}</p>
   <div *ngFor="let album of _albumes.albumesCantidad">
     <div *ngFor="let seccion of album.seccion">
     <ion-card color="aguaMarina">
@@ -42,7 +45,7 @@
         <ion-col col-4 *ngFor="let item of seccion.tickets">
           <ion-card>
           <ion-checkbox class = "profilecheck" (ionChange)= "anadirAlista(item)"></ion-checkbox>
-          <ion-badge *ngIf="item.cantidad >= 2" color="danger" class="profilebutton">{{item.cantidad}}</ion-badge>
+          <ion-badge *ngIf="item.cantidad >= 2" color="danger" class="profilebutton">{{item.cantidad-1}}</ion-badge>
           <ion-avatar item-start>
             <img *ngIf="item.cantidad == 0" [src]="seccion.imagenSeccion | imagen:'IcoGris'" >
             <img *ngIf="item.cantidad >= 1" [src]="seccion.imagenSeccion | imagen:''" >
@@ -65,14 +68,14 @@
     <button ion-fab color="rojo"><ion-icon name="contacts"></ion-icon></button>
     <ion-fab-list side="left">
       <button ion-fab (click)="navegarIntercambio()" color="azulOscuro"><ion-icon name="repeat"></ion-icon></button>
-      <ion-label class="tipoLetra">{{mensajesPagina.solicitarIntercambio}}</ion-label>
+      <ion-label class="tipoLetra2">{{mensajesPagina.solicitarIntercambio}}</ion-label>
     </ion-fab-list>
   </ion-fab>
   <ion-fab right bottom *ngIf="_ajustes.ajustes.idioma=='I'">
     <button ion-fab color="rojo"><ion-icon name="contacts"></ion-icon></button>
     <ion-fab-list side="left">
       <button ion-fab (click)="navegarIntercambio()" color="azulOscuro"><ion-icon name="repeat"></ion-icon></button>
-      <ion-label class="tipoLetra">{{mensajesPagina.solicitarIntercambioIng}}</ion-label>
+      <ion-label class="tipoLetra2">{{mensajesPagina.solicitarIntercambioIng}}</ion-label>
     </ion-fab-list>
   </ion-fab>
 

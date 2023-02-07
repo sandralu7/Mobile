@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar color="naranja">
+  <ion-navbar color="naranja" class="fondo2">
     <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
     <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.tituloIng}}</ion-title>
 
@@ -41,12 +41,6 @@
     <ion-input type="email"  [(ngModel)]="email"></ion-input>
   </ion-item>
 
-  <ion-item>
-    <ion-label floating *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.celular}}</ion-label>
-    <ion-label floating *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.celularIng}}</ion-label>
-
-    <ion-input type="tel"  [(ngModel)]="celular"></ion-input>
-  </ion-item>
 
   <ion-item>
     <ion-label floating *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.password}}</ion-label>
@@ -61,6 +55,18 @@
 
     <ion-input type="password"  [(ngModel)]="passwordver"></ion-input>
   </ion-item>
+
+  <ion-item>
+    <ion-label floating *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.celular}}</ion-label>
+    <ion-label floating *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.celularIng}}</ion-label>
+    <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.celularMensaje}}</p>
+    <p *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.celularMensajeIng}}</p>
+    <ion-input type="tel"  [(ngModel)]="celular"></ion-input>
+  </ion-item>
+  <ion-card color="naranja">
+  <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.celularMensaje}}</p>
+  <p *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.celularMensajeIng}}</p>
+</ion-card>
   <br><br><br>
 
   <button *ngIf="_ajustes.ajustes.idioma=='E'"  ion-button   color="aguaMarina"  round block (click)="registrarUsuario()">

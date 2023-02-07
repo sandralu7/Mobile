@@ -11,6 +11,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 //Pipe
 import {ImagenPipe} from "../pipes/imagen/imagen";
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { MyApp } from './app.component';
 import { AlbumPage,
@@ -24,6 +25,7 @@ import { AlbumPage,
   SolicitudesEntrantesPage,
   SolicitudesSalientesPage,
   TabsPage,
+  ResultadoBusquedaIntercambiosPage,
   HomePage,  ConfimarUsuarioPage, OlvidoContraseniaPage, CambiarContraseniaPage} from "../pages/index.paginas";
 
   // Storage
@@ -53,6 +55,7 @@ import { AjustesProvider } from '../providers/ajustes/ajustes';
     TabsPage,
     HomePage,
     ImagenPipe,
+    ResultadoBusquedaIntercambiosPage,
     ConfimarUsuarioPage, OlvidoContraseniaPage, CambiarContraseniaPage
   ],
   imports: [
@@ -77,6 +80,7 @@ import { AjustesProvider } from '../providers/ajustes/ajustes';
     SolicitudesSalientesPage,
     TabsPage,
     HomePage,
+    ResultadoBusquedaIntercambiosPage,
     ConfimarUsuarioPage, OlvidoContraseniaPage, CambiarContraseniaPage
   ],
   providers: [
@@ -90,7 +94,9 @@ import { AjustesProvider } from '../providers/ajustes/ajustes';
     AlbumProvider,
     UsuarioProvider,
     IntercambiosProvider,
-    AjustesProvider
+    AjustesProvider,
+    IntercambiosProvider,
+    SocialSharing
   ]
 })
 export class AppModule {

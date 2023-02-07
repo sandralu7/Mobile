@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
 import {AlertController} from "ionic-angular";
+import { ToastController } from 'ionic-angular';
+
 
 import { URL_SERVICIOS} from "../../config/url.servicios";
 import { Album } from "../../interfaces/album.interface";
@@ -29,7 +31,8 @@ export class AlbumProvider {
   albumesCantidad: Album[] =[];
 
   constructor(public http: Http, public alertCtl:AlertController,
-        private ajustes:AjustesProvider, public loadingCtrl: LoadingController) {
+        private ajustes:AjustesProvider, public loadingCtrl: LoadingController,
+        public toastCtrl: ToastController) {
     this.idUsuario = this.ajustes.ajustes.id_usuario;
     this.cargar_todos();
     //this.albumes = ALBUMS.slice(0);
@@ -163,12 +166,19 @@ export class AlbumProvider {
 
                 }).present();
               }else{
-                this.alertCtl.create({
+                let toast = this.toastCtrl.create({
+                message: (this.ajustes.ajustes.idioma=='E') ? 'La lámina se ha agregado correctamente':'Sticker added correctly',
+                duration: 3000,
+                position: 'top'
+                  });
+                  toast.present();
+
+                /*this.alertCtl.create({
                     title: (this.ajustes.ajustes.idioma=='E') ? 'Lámina Agregada':'Sticker added',
                     subTitle: (this.ajustes.ajustes.idioma=='E') ? 'La lámina se ha agregado correctamente':'Sticker added correctly',
                     buttons: ["OK"]
 
-                }).present();
+                }).present();*/
               }
             })
   }
@@ -201,12 +211,18 @@ export class AlbumProvider {
 
                 }).present();
               }else{
-                this.alertCtl.create({
+                /*this.alertCtl.create({
                     title: (this.ajustes.ajustes.idioma=='E') ? 'Lámina Eliminada':'Sticker removed',
                     subTitle: (this.ajustes.ajustes.idioma=='E') ? 'La lámina se eliminó correctamente':'The sticker was removed correctly',
                     buttons: ["OK"]
 
-                }).present();
+                }).present();*/
+                let toast = this.toastCtrl.create({
+                message: (this.ajustes.ajustes.idioma=='E') ? 'La lámina se eliminó correctamente':'The sticker was removed correctly',
+                duration: 3000,
+                position: 'top'
+                  });
+                  toast.present();
               }
             })
 

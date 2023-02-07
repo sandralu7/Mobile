@@ -1,0 +1,47 @@
+<!--
+  Generated template for the ResultadoBusquedaIntercambiosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="naranja">
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.titulo}}</ion-title>
+    <ion-title *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.tituloIng}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="fondo2">
+
+  <h2 *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.mensajeTitulo}}</h2>
+  <h2 *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.mensajeTituloIng}}</h2>
+  <p *ngIf="_ajustes.ajustes.idioma=='E'">{{mensajesPagina.mensajeParrafo}}</p>
+  <p *ngIf="_ajustes.ajustes.idioma=='I'">{{mensajesPagina.mensajeParrafoIng}}</p>
+  <ion-list >
+    <ion-item *ngFor="let item of _intercambios.usuariosCercanos">
+      <ion-avatar item-start>
+        <img *ngIf="item.porcentajeLlenado==100" src="assets/banderas/trofeoIcon.png">
+        <img *ngIf="item.porcentajeLlenado>=80 && item.porcentajeLlenado<=99" src="assets/banderas/goldIcon.png">
+        <img *ngIf="item.porcentajeLlenado>=60 && item.porcentajeLlenado<=79" src="assets/banderas/silverIcon.png">
+        <img *ngIf="item.porcentajeLlenado>=0 && item.porcentajeLlenado<=59" src="assets/banderas/bronzeIcon.png">
+     </ion-avatar>
+     <h2>{{item.nombreUsuario}}</h2>
+     <div *ngFor="let ticket of item.tickets">
+     <p *ngIf="_ajustes.ajustes.idioma=='E'"><span>{{mensajesPagina.laminaNumero}}</span> {{ticket.numeroTicket}}<p>
+      <p *ngIf="_ajustes.ajustes.idioma=='I'"><span>{{mensajesPagina.laminaNumeroIng}}</span> {{ticket.numeroTicket}}<p>
+     </div>
+     <p *ngIf="_ajustes.ajustes.idioma=='E'"><span>{{mensajesPagina.distancia}}</span> {{item.distanciaKm}} Km<p>
+     <p *ngIf="_ajustes.ajustes.idioma=='I'"><span>{{mensajesPagina.distanciaIng}}</span> {{item.distanciaKm}} Km<p>
+
+      <ion-icon name="logo-whatsapp" color="secondary"  (click)="verInformacion(item)" class="ion-icon-large" *ngIf="llamarFuncion(item)"></ion-icon>
+      <ion-icon name="mail" color="azulOscuro" (click)="verInformacionCorreo(item)" class="ion-icon-large"></ion-icon>
+
+    </ion-item>
+
+  </ion-list>
+
+
+</ion-content>
